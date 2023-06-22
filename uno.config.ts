@@ -15,11 +15,15 @@ export default defineConfig({
     ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
   ],
   presets: [
-    presetUno(),
+    presetUno({
+    }),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
       warn: true,
+      collections: {
+        carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default as any),
+      },
     }),
     presetTypography(),
     presetWebFonts({
