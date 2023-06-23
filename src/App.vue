@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { GlobalThemeOverrides } from 'naive-ui'
+import type { GlobalComponentConfig, GlobalThemeOverrides } from 'naive-ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
@@ -7,13 +7,13 @@ import 'swiper/css/pagination'
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
 useHead({
-  title: 'Vitesse',
+  title: '湖北省第二届微生物培养皿艺术设计大赛',
   meta: [
     { name: 'description', content: 'Opinionated Vite Starter Template' },
-    {
-      name: 'theme-color',
-      content: () => isDark.value ? '#00aba9' : '#ffffff',
-    },
+    // {
+    //   name: 'theme-color',
+    //   content: () => isDark.value ? '#00aba9' : '#ffffff',
+    // },
   ],
   link: [
     {
@@ -50,10 +50,14 @@ const themeOverrides: GlobalThemeOverrides = {
     textColorPressed: '#fff',
   },
 }
+
+const componentOptions: GlobalComponentConfig = {
+
+}
 </script>
 
 <template>
-  <n-config-provider :theme-overrides="themeOverrides">
+  <n-config-provider :theme-overrides="themeOverrides" :component-options="componentOptions">
     <RouterView />
   </n-config-provider>
 </template>

@@ -1,11 +1,24 @@
 <script setup lang="ts">
+import NewsCard from './NewsCard.vue'
 import bg from '~/assets/home/home_3_02.jpg'
 import h5bg from '~/assets/home/h5-home1.jpg'
+
+function handleDetail() {}
 </script>
 
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" title="大赛动态">
-    <div class="home-item" />
+    <div m="t-4vw" grid="~ cols-4 gap-4 lt-lg:cols-2" px="1/10">
+      <NewsCard @detail="handleDetail" />
+      <NewsCard />
+      <NewsCard />
+      <NewsCard />
+    </div>
+    <div text-center m="t-5vw">
+      <div text="20px" border="1 primary solid" p="y-4 x-8vw" inline-block rounded-2>
+        了解更多
+      </div>
+    </div>
   </PageItem>
 </template>
 
