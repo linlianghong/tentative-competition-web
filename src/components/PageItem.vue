@@ -42,7 +42,7 @@ function handleMousewheel(e: WheelEvent) {
       <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
-    <div w-full flex-1>
+    <div w-full flex-1 px="1/10">
       <slot />
     </div>
   </div>
