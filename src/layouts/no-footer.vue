@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <n-layout class="app-layout">
     <TheHeader />
@@ -7,18 +10,14 @@
       }"
     >
       <n-layout
-        flex-1! class="app-layout-content" :content-style="{
-          height: `calc(100vh - var(--app-header-height))`,
-          display: 'flex',
-          flexDirection: 'column',
-        }"
+        class="app-layout-content" :content-style="{ height: `calc(100vh - var(--app-header-height))` }"
       >
-        <n-layout-content flex-1! :content-style="{ height: '100%' }">
+        <n-layout-content
+          h-full
+          :content-style="{ height: `calc(100vh - var(--app-header-height))` }"
+        >
           <RouterView />
         </n-layout-content>
-        <n-layout-footer>
-          <TheFooter />
-        </n-layout-footer>
       </n-layout>
     </n-layout-content>
   </n-layout>
@@ -28,7 +27,7 @@
 .app-layout{
   --app-header-height: 110px;
 
-  @apply h-full!;
+  @apply h-full! flex-1!;
 
   @media (max-width: 1023.9px) {
     --app-header-height: 50px;

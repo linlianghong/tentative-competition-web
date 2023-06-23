@@ -42,9 +42,9 @@ function menuNode() {
 </script>
 
 <template>
-  <n-layout-header h="$app-header-height">
-    <n-affix w="full" h="$app-header-height" :top="0" text="#fff" bg="no-repeat" :style="{ backgroundImage: `url(${bg})` }">
-      <div flex="~ justify-center items-center lt-lg:(justify-between px-4)" h="full">
+  <n-layout-header h="$app-header-height!">
+    <n-affix w="full!" h="$app-header-height!" :top="0!" text="#fff!" bg="no-repeat!" :style="{ backgroundImage: `url(${bg})` }">
+      <div flex="~ justify-between items-center " h="full" class="px-1/10 lt-lg:(justify-between px-4)">
         <n-popover>
           <template #trigger>
             <div class="i-carbon:menu cursor-pointer text-21px lg:hidden" />
@@ -58,6 +58,14 @@ function menuNode() {
           <menuNode />
         </div>
         <div class="i-carbon:user cursor-pointer text-21px lg:hidden" />
+        <div class="flex gap-4 lt-lg:hidden">
+          <n-button type="default">
+            注册
+          </n-button>
+          <n-button type="default">
+            登录
+          </n-button>
+        </div>
       </div>
     </n-affix>
   </n-layout-header>
@@ -65,11 +73,11 @@ function menuNode() {
 
 <style>
 .layout-menu {
-  @apply h-full text-8;
+  @apply h-full! text-8!;
   .n-menu-item {
-    @apply h-full;
+    @apply h-full!;
     .n-menu-item-content  {
-      @apply h-full border-b-6px!;
+      @apply h-full! border-b-6px!;
     }
   }
 

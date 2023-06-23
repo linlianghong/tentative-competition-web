@@ -1,23 +1,59 @@
 <script setup lang="ts">
 import titlebg from '~/assets/common/title-bg.png'
 
-defineProps({
+const props = defineProps({
   bg: String,
+  h5bg: String,
   title: String,
+  showFooter: { type: Boolean, default: false },
 })
+
+const isShowFooter = ref(false)
+
+const footerEl = ref<HTMLDivElement | null>()
+
+function handleMousewheel(e: WheelEvent) {
+  if (!props.showFooter)
+    return
+  const wheelDelta = (e as any).wheelDelta as number ?? e.detail
+  if (wheelDelta > 0 && isShowFooter.value) { // 当鼠标滚轮向上滚动时
+    e.stopPropagation()
+    isShowFooter.value = false
+  }
+  if (wheelDelta < 0) { // 当鼠标滚轮向下滚动时
+    isShowFooter.value = true
+  }
+}
 </script>
 
 <template>
-  <div h="full" bg="no-repeat center cover" relative flex="~ col justify-center items-center">
-    <img :src="bg" h-full w-full absolute="~ inset-0" object="center cover">
-    <div v-if="title" relative="~" flex="~ justify-center items-center" px="8em" m="t-4 b-8">
-      <span relative z="2" text="28px" font="bold">{{ title }}</span>
+  <div
+    class="page-item"
+    h="full" bg="no-repeat center cover" relative flex="~ col items-center" :style="{
+      '--page-item-bg': `url(${bg})`,
+      '--page-item-h5-bg': `url(${h5bg ?? bg})`,
+      'marginTop': isShowFooter ? `-${footerEl?.clientHeight}px` : 0,
+    }"
+    transition="margin duration-500"
+    @wheel="handleMousewheel"
+  >
+    <!-- <img :src="bg" h-full w-full absolute="~ inset-0" object="center cover"> -->
+    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-4 b-8 " lt-lg="mt-6vw text-16px">
+      <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
     <slot />
   </div>
+  <div v-if="showFooter" ref="footerEl" w-full>
+    <TheFooter />
+  </div>
 </template>
 
 <style scoped>
-
+.page-item {
+  background-image: var(--page-item-bg);
+  @media (max-width: 1023.9px) {
+    background-image: var(--page-item-h5-bg);
+  }
+}
 </style>
