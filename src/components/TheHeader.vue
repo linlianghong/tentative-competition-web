@@ -11,7 +11,7 @@ const menuOptions: MenuOption[] = [
     key: '0',
   },
   {
-    label: () => <RouterLink to="">大赛动态</RouterLink>,
+    label: () => <RouterLink to="/news">大赛动态</RouterLink>,
     key: '1',
   },
   {
