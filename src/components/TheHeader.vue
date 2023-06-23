@@ -43,7 +43,7 @@ function menuNode() {
 
 <template>
   <n-layout-header h="$app-header-height!">
-    <n-affix w="full!" h="$app-header-height!" :top="0!" text="#fff!" bg="no-repeat!" :style="{ backgroundImage: `url(${bg})` }">
+    <n-affix w="full!" h="$app-header-height!" :top="0!" text="#fff!" bg="no-repeat! cover!" :style="{ backgroundImage: `url(${bg})` }">
       <div flex="~ justify-between items-center " h="full" class="px-1/10 lt-lg:(justify-between px-4)">
         <n-popover>
           <template #trigger>

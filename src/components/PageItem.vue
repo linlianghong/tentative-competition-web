@@ -38,11 +38,13 @@ function handleMousewheel(e: WheelEvent) {
     @wheel="handleMousewheel"
   >
     <!-- <img :src="bg" h-full w-full absolute="~ inset-0" object="center cover"> -->
-    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-4 b-8 " lt-lg="mt-6vw text-16px">
+    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-6vw b-8 " lt-lg="mt-6vw text-16px">
       <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
-    <slot />
+    <div w-full flex-1>
+      <slot />
+    </div>
   </div>
   <div v-if="showFooter" ref="footerEl" w-full>
     <TheFooter />
