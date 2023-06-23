@@ -7,13 +7,13 @@
       }"
     >
       <n-layout
-        flex-1! class="app-layout-content" :content-style="{
+        class="app-layout-content flex-1!" :content-style="{
           height: `calc(100vh - var(--app-header-height))`,
           display: 'flex',
           flexDirection: 'column',
         }"
       >
-        <n-layout-content flex-1! :content-style="{ height: '100%' }">
+        <n-layout-content class="flex-1!" :content-style="{ height: '100%' }">
           <RouterView />
         </n-layout-content>
         <n-layout-footer>
