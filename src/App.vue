@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import type { GlobalThemeOverrides } from 'naive-ui'
+import 'swiper/css'
+import 'swiper/css/pagination'
+
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
@@ -19,8 +23,37 @@ useHead({
     },
   ],
 })
+
+const themeOverrides: GlobalThemeOverrides = {
+  common: {
+    primaryColor: 'rgba(186, 54, 210, 1)',
+  },
+  Button: {
+    // textColorPrimary: '#fff',
+    // rippleColorPrimary: 'rgba(186, 54, 210, 1)',
+    // colorFocusPrimary: 'rgba(186, 54, 210, 1)',
+    // colorPressedPrimary: 'rgba(186, 54, 210, 1)',
+    // colorPrimary: 'rgba(186, 54, 210, 1)',
+    // colorHoverPrimary: 'rgba(186, 54, 210, 1)',
+    // borderHoverPrimary: 'rgba(186, 54, 210, 1)',
+    // borderFocusPrimary: 'rgba(186, 54, 210, 1)',
+    // borderPressed: '#fff',
+    // colorHover: 'rgba(186, 54, 210, 1)',
+    // colorFocus: 'rgba(186, 54, 210, 1)',
+    // colorPressed: 'rgba(186, 54, 210, 1)',
+    // border: '#fff',
+    borderHover: '#fff',
+    borderFocus: '#fff',
+    textColor: '#fff',
+    textColorFocus: '"#fff',
+    textColorHover: '#fff',
+    textColorPressed: '#fff',
+  },
+}
 </script>
 
 <template>
-  <RouterView />
+  <n-config-provider :theme-overrides="themeOverrides">
+    <RouterView />
+  </n-config-provider>
 </template>

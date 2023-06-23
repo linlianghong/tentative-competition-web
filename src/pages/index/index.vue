@@ -14,6 +14,7 @@ const modules = [Mousewheel, Pagination]
 
 <template>
   <Swiper
+    :speed="1000"
     direction="vertical"
     :slides-per-view="1"
     :space-between="0"
@@ -28,7 +29,6 @@ const modules = [Mousewheel, Pagination]
     <SwiperSlide><GameDynamics /></SwiperSlide>
     <SwiperSlide><GameProfile /></SwiperSlide>
     <SwiperSlide><GameDate /></SwiperSlide>
-    <SwiperSlide><GameDynamics /></SwiperSlide>
     <SwiperSlide><GameWork /></SwiperSlide>
     <SwiperSlide><GameOrg /></SwiperSlide>
   </Swiper>
@@ -39,3 +39,8 @@ const modules = [Mousewheel, Pagination]
   @apply h-full;
 }
 </style>
+
+<route lang="yaml">
+meta:
+  layout: no-footer
+</route>
