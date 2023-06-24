@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import Banner from './components/Banner.vue'
-import News from './components/News.vue'
+import HistoryPhotos from './components/HistoryPhotos.vue'
 
 const modules = [Mousewheel, Pagination]
 </script>
@@ -22,7 +22,7 @@ const modules = [Mousewheel, Pagination]
   >
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
-      <News />
+      <HistoryPhotos />
     </SwiperSlide>
   </Swiper>
 </template>
