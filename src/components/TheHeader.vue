@@ -15,11 +15,11 @@ const menuOptions: MenuOption[] = [
     key: '1',
   },
   {
-    label: () => <RouterLink to="">我要参赛</RouterLink>,
+    label: () => <RouterLink to="/enter-competition">我要参赛</RouterLink>,
     key: '2',
   },
   {
-    label: () => <RouterLink to="">往届作品</RouterLink>,
+    label: () => <RouterLink to="/previous-works">往届作品</RouterLink>,
     key: '3',
   },
 ]
