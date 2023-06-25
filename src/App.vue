@@ -3,9 +3,14 @@ import type { GlobalComponentConfig, GlobalThemeOverrides } from 'naive-ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-const meta = document.createElement('meta')
-meta.name = 'naive-ui-style'
-document.head.appendChild(meta)
+try {
+  const meta = document.createElement('meta')
+  meta.name = 'naive-ui-style'
+  document.head.appendChild(meta)
+}
+catch (error) {
+
+}
 
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
