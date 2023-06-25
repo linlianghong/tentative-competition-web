@@ -168,6 +168,10 @@ export default defineConfig({
     },
   },
 
+  optimizeDeps: {
+    exclude: ['naive-ui', 'vueuc'],
+  },
+
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
     script: 'async',
