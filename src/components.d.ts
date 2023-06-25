@@ -9,11 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    NAffix: typeof import('naive-ui')['NAffix']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NDivider: typeof import('naive-ui')['NDivider']
     NEllipsis: typeof import('naive-ui')['NEllipsis']
     NInput: typeof import('naive-ui')['NInput']
     NInputGroup: typeof import('naive-ui')['NInputGroup']
@@ -23,10 +21,7 @@ declare module '@vue/runtime-core' {
     NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
     NPagination: typeof import('naive-ui')['NPagination']
     NPopover: typeof import('naive-ui')['NPopover']
-    NScroll: typeof import('naive-ui')['NScroll']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
-    NSearch: typeof import('naive-ui')['NSearch']
-    NSpace: typeof import('naive-ui')['NSpace']
     NTabPane: typeof import('naive-ui')['NTabPane']
     NTabs: typeof import('naive-ui')['NTabs']
     PageItem: typeof import('./components/PageItem.vue')['default']

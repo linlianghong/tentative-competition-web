@@ -1,6 +1,7 @@
 <script setup lang="tsx">
 import { type MenuOption, NMenu } from 'naive-ui'
 import { RouterLink } from 'vue-router'
+import { NAffix } from 'naive-ui'
 import bg from '~/assets/header/header-bg.png'
 
 const activeKey = ref('')
@@ -43,7 +44,7 @@ function menuNode() {
 
 <template>
   <n-layout-header h="$app-header-height!">
-    <n-affix w="full!" h="$app-header-height!" :top="0!" text="#fff!" bg="no-repeat! cover!" :style="{ backgroundImage: `url(${bg})` }">
+    <NAffix w="full!" h="$app-header-height!" :top="0!" text="#fff!" bg="no-repeat! cover!" :style="{ backgroundImage: `url(${bg})` }">
       <div flex="~ justify-between items-center " h="full" class="px-1/10 lt-lg:(justify-between px-4)">
         <n-popover>
           <template #trigger>
@@ -67,7 +68,7 @@ function menuNode() {
           </n-button>
         </div>
       </div>
-    </n-affix>
+    </NAffix>
   </n-layout-header>
 </template>
 
