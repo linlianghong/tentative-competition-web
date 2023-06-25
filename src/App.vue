@@ -3,6 +3,10 @@ import type { GlobalComponentConfig, GlobalThemeOverrides } from 'naive-ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
+const meta = document.createElement('meta')
+meta.name = 'naive-ui-style'
+document.head.appendChild(meta)
+
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
