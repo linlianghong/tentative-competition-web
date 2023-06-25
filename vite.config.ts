@@ -174,6 +174,7 @@ export default defineConfig({
 
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
+    mock: true,
     script: 'async',
     formatting: 'minify',
     crittersOptions: {
