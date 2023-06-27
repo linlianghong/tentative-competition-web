@@ -4,6 +4,8 @@ import { RouterLink } from 'vue-router'
 import { NAffix } from 'naive-ui'
 import bg from '~/assets/header/header-bg.png'
 
+const router = useRouter()
+
 const activeKey = ref('')
 
 const menuOptions: MenuOption[] = [
@@ -63,7 +65,7 @@ function menuNode() {
           <n-button type="default">
             注册
           </n-button>
-          <n-button type="default">
+          <n-button type="default" @click="router.push('/login')">
             登录
           </n-button>
         </div>
