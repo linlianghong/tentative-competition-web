@@ -6,18 +6,14 @@ import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Markdown from 'vite-plugin-vue-markdown'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import Shiki from 'markdown-it-shiki'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // @ts-expect-error failed to resolve types
 import VueMacros from 'unplugin-vue-macros/vite'
-import WebfontDownload from 'vite-plugin-webfont-dl'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
@@ -94,26 +90,26 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-vue-markdown
     // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-    Markdown({
-      wrapperClasses: 'prose prose-sm m-auto text-left',
-      headEnabled: true,
-      markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Shiki, {
-          theme: {
-            light: 'vitesse-light',
-            dark: 'vitesse-dark',
-          },
-        })
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-      },
-    }),
+    // Markdown({
+    //   wrapperClasses: 'prose prose-sm m-auto text-left',
+    //   headEnabled: true,
+    //   markdownItSetup(md) {
+    //     // https://prismjs.com/
+    //     md.use(Shiki, {
+    //       theme: {
+    //         light: 'vitesse-light',
+    //         dark: 'vitesse-dark',
+    //       },
+    //     })
+    //     md.use(LinkAttributes, {
+    //       matcher: (link: string) => /^https?:\/\//.test(link),
+    //       attrs: {
+    //         target: '_blank',
+    //         rel: 'noopener',
+    //       },
+    //     })
+    //   },
+    // }),
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
@@ -153,7 +149,7 @@ export default defineConfig({
     }),
 
     // https://github.com/feat-agency/vite-plugin-webfont-dl
-    WebfontDownload(),
+    // WebfontDownload(),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     VueDevTools(),
@@ -168,13 +164,8 @@ export default defineConfig({
     },
   },
 
-  optimizeDeps: {
-    exclude: ['naive-ui', 'vueuc'],
-  },
-
   // https://github.com/antfu/vite-ssg
   ssgOptions: {
-    format: 'cjs',
     mock: true,
     script: 'async',
     formatting: 'minify',
