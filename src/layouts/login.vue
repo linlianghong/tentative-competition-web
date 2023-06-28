@@ -1,16 +1,15 @@
 <template>
   <n-layout
-    class="app-layout-content flex-1!" :content-style="{
-    }"
+    class="app-layout-content flex-1!" :content-style="{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }"
   >
-    <n-layout-content class="flex-1!" :content-style="{ height: '100%' }">
-      <RouterView />
-    </n-layout-content>
+    <RouterView />
   </n-layout>
 </template>
 
 <style scoped>
 .app-layout-content {
-    @apply h-full!;
+    @apply h-screen! bg-cover bg-no-repeat;
+
+    background-image: url(src/assets/login/bg.png);
   }
 </style>
