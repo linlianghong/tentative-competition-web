@@ -1,33 +1,69 @@
 <script setup lang="ts">
+import type { FormInst } from 'naive-ui'
+import img from 'src/assets/login/img.png'
+import { login as loginApi } from '~/api'
 
+const form = ref<FormInst | null>()
+
+const formData = ref({ name: '', psw: '' })
+
+function login() {
+  form.value?.validate().then(() => {
+    loginApi({ password: formData.value.psw, username: formData.value.name }).then((res) => {
+      console.log(res)
+    })
+  })
+}
+const router = useRouter()
+function register() {
+  router.push('/register')
+}
 </script>
 
 <template>
-  <div m="x-10vw y-3vh" p="4" bg="#fff" rounded="xl">
-    <div>
-      <img>
+  <div w-60vw m="" p="" bg="#fff" rounded="xl" flex="~" overflow="hidden">
+    <div flex="1">
+      <img object-contain :src="img">
     </div>
-    <div p="4">
-      <header>登陆</header>
-      <n-form>
-        <n-grid>
-          <n-form-item-gi span="24">
-            <n-input />
-          </n-form-item-gi>
-          <n-form-item-gi span="24">
-            <n-input />
-          </n-form-item-gi>
-          <n-grid-item span="24">
-            忘记密码
-          </n-grid-item>
-          <n-grid-item span="24">
-            <n-button>登录</n-button>
-          </n-grid-item>
-          <n-grid-item span="24">
-            <n-button>立即注册</n-button>
-          </n-grid-item>
-        </n-grid>
-      </n-form>
+    <div flex="1" p="6">
+      <header>
+        <span title-board>登陆</span>
+      </header>
+      <div m="t-6">
+        <n-form ref="form" :model="formData">
+          <n-grid>
+            <n-form-item-gi span="24" label="队伍名" :label-style="{ fontSize: '16px' }" :rule="[{ required: true, message: '请输入队伍名' }]" path="name" :show-require-mark="false">
+              <n-input v-model:value="formData.name" placeholder="请输入队伍名">
+                <template #prefix>
+                  <div class="i-carbon:user" opacity-40 />
+                </template>
+              </n-input>
+            </n-form-item-gi>
+            <n-form-item-gi span="24" label="密码" :label-style="{ fontSize: '16px' }" :rule="[{ required: true, message: '请输入密码' }]" path="psw" :show-require-mark="false">
+              <n-input v-model:value="formData.psw" placeholder="请输入密码" type="password">
+                <template #prefix>
+                  <div class="i-carbon:locked" opacity-40 />
+                </template>
+              </n-input>
+            </n-form-item-gi>
+            <n-grid-item span="24" text-right>
+              <n-button text>
+                忘记密码
+              </n-button>
+            </n-grid-item>
+            <n-form-item-gi span="24" :show-feedback="false">
+              <n-button type="primary" :block="true" @click="login">
+                登录
+              </n-button>
+            </n-form-item-gi>
+            <n-form-item-gi span="24">
+              <n-button text :block="true" :show-feedback="false" class="text-primary!" @click="register">
+                立即注册
+              </n-button>
+            </n-form-item-gi>
+          </n-grid>
+        </n-form>
+      </div>
     </div>
   </div>
 </template>
