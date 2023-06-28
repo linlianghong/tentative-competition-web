@@ -54,7 +54,7 @@ function menuNode() {
           </template>
           <menuNode />
         </n-popover>
-        <div text="28px" font="bold" max-w="253px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
+        <div text="22px" font="bold" max-w="253px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
           湖北省第二届微生物培养皿艺术设计大赛
         </div>
         <div h="full" class="lt-lg:hidden">
@@ -62,10 +62,30 @@ function menuNode() {
         </div>
         <div class="i-carbon:user cursor-pointer text-21px lg:hidden" />
         <div class="flex gap-4 lt-lg:hidden">
-          <n-button type="default">
+          <n-button
+            :theme-overrides="{
+              borderHover: '#fff',
+              borderFocus: '#fff',
+              borderPressed: '#fff',
+              textColor: '#fff',
+              textColorHover: '#fff',
+              textColorFocus: '#fff',
+              textColorPressed: '#fff',
+            }" type="default" @click="router.push('/register')"
+          >
             注册
           </n-button>
-          <n-button type="default" @click="router.push('/login')">
+          <n-button
+            :theme-overrides="{
+              borderHover: '#fff',
+              borderFocus: '#fff',
+              borderPressed: '#fff',
+              textColor: '#fff',
+              textColorHover: '#fff',
+              textColorFocus: '#fff',
+              textColorPressed: '#fff',
+            }" type="default" @click="router.push('/login')"
+          >
             登录
           </n-button>
         </div>
@@ -76,9 +96,9 @@ function menuNode() {
 
 <style>
 .layout-menu {
-  @apply h-full! text-8!;
+  @apply h-full! text-6!;
   .n-menu-item {
-    @apply h-full!;
+    @apply h-full! mx-6!;
     .n-menu-item-content  {
       @apply h-full! border-b-6px!;
     }
