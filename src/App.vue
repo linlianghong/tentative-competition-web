@@ -38,6 +38,26 @@ const themeOverrides: GlobalThemeOverrides = {
     primaryColor: 'rgba(186, 54, 210, 1)',
   },
   Button: {
+    borderPressed: 'rgba(186, 54, 210, .8)',
+    // colorPrimary: 'linear-gradient(#D44CE4 1%, #AA55D6 100%)',
+    colorHoverPrimary: 'rgba(186, 54, 210, .8)',
+    colorFocusPrimary: 'rgba(186, 54, 210, .8)',
+    colorPressedPrimary: 'rgba(186, 54, 210, .8)',
+    // borderPrimary: 'rgba(186, 54, 210, .8)',
+    borderHoverPrimary: 'rgba(186, 54, 210, .8)',
+    borderFocusPrimary: 'rgba(186, 54, 210, .8)',
+    borderPressedPrimary: 'rgba(186, 54, 210, .8)',
+    // textColorPrimary: 'rgba(186, 54, 210, 1)',
+    textColorTextHoverPrimary: 'rgba(186, 54, 210, .8)',
+    textColorTextFocusPrimary: 'rgba(186, 54, 210, .8)',
+    textColorGhostPrimary: 'rgba(186, 54, 210, 1)',
+    textColorGhostHoverPrimary: 'rgba(186, 54, 210, .8)',
+    textColorGhostFocusPrimary: 'rgba(186, 54, 210, .8)',
+    textColorGhostPressedPrimary: 'rgba(186, 54, 210, .8)',
+    // textColorText: 'rgba(186, 54, 210, 1)',
+    textColorTextHover: 'rgba(186, 54, 210, .8)',
+    textColorTextPressed: 'rgba(186, 54, 210, .8)',
+    textColorTextFocus: 'rgba(186, 54, 210, .8)',
     // textColorPrimary: '#fff',
     // rippleColorPrimary: 'rgba(186, 54, 210, 1)',
     // colorFocusPrimary: 'rgba(186, 54, 210, 1)',
@@ -51,12 +71,17 @@ const themeOverrides: GlobalThemeOverrides = {
     // colorFocus: 'rgba(186, 54, 210, 1)',
     // colorPressed: 'rgba(186, 54, 210, 1)',
     // border: '#fff',
-    borderHover: '#fff',
-    borderFocus: '#fff',
-    textColor: '#fff',
-    textColorFocus: '"#fff',
-    textColorHover: '#fff',
-    textColorPressed: '#fff',
+    // borderHover: '#fff',
+    // borderFocus: '#fff',
+    // textColor: '#fff',
+    // textColorFocus: '"#fff',
+    // textColorHover: '#fff',
+    // textColorPressed: '#fff',
+  },
+  Input: {
+    // border: 'rgba(186, 54, 210, 1)',
+    borderHover: 'rgba(186, 54, 210, .8)',
+    borderFocus: 'rgba(186, 54, 210, .8)',
   },
 }
 
@@ -67,6 +92,8 @@ const componentOptions: GlobalComponentConfig = {
 
 <template>
   <n-config-provider :theme-overrides="themeOverrides" :component-options="componentOptions">
-    <RouterView />
+    <n-dialog-provider>
+      <RouterView />
+    </n-dialog-provider>
   </n-config-provider>
 </template>

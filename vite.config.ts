@@ -8,13 +8,13 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import Unocss from 'unocss/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // @ts-expect-error failed to resolve types
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { APP_BASE_URL } from './src/constant'
 
 export default defineConfig({
   build: {},
@@ -70,6 +70,8 @@ export default defineConfig({
       dirs: [
         'src/composables',
         'src/stores',
+        'src/utils',
+        'src/api/http',
       ],
       vueTemplate: true,
     }),
@@ -152,7 +154,7 @@ export default defineConfig({
     // WebfontDownload(),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
+    // VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest
@@ -180,5 +182,17 @@ export default defineConfig({
   ssr: {
     // TODO: workaround until they support native ESM
     noExternal: ['workbox-window', /vue-i18n/, 'naive-ui', 'vueuc'],
+  },
+
+  server: {
+    proxy: {
+      '/api': {
+        target: APP_BASE_URL,
+        changeOrigin: true,
+        rewrite(path) {
+          return path.replace(/^\/api/, '')
+        },
+      },
+    },
   },
 })
