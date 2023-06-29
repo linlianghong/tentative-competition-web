@@ -7,14 +7,22 @@ const form = ref<FormInst | null>()
 
 const formData = ref({ name: '', psw: '' })
 
+const router = useRouter()
+
+const { run: api, loading } = useRequest(loginApi, {
+  manual: true,
+  onSuccess(res) {
+    setTokenStorage(res.token)
+    router.push('/user/profile')
+  },
+
+})
+
 function login() {
   form.value?.validate().then(() => {
-    loginApi({ password: formData.value.psw, username: formData.value.name }).then((res) => {
-      console.log(res)
-    })
+    api({ password: formData.value.psw, username: formData.value.name })
   })
 }
-const router = useRouter()
 function register() {
   router.push('/register')
 }
@@ -52,7 +60,7 @@ function register() {
               </n-button>
             </n-grid-item>
             <n-form-item-gi span="24" :show-feedback="false">
-              <n-button type="primary" :block="true" @click="login">
+              <n-button type="primary" :block="true" :loading="loading" @click="login">
                 登录
               </n-button>
             </n-form-item-gi>
