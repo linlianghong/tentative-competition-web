@@ -38,7 +38,7 @@ function register() {
     </div>
     <div flex="~ 1 col justify-center" p="6">
       <header>
-        <span title-board>登陆</span>
+        <span title-board>登录</span>
       </header>
       <div m="t-6">
         <n-form ref="form" :model="formData">
