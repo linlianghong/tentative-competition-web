@@ -6,7 +6,7 @@ import h5bg from '~/assets/enter-competition/hc2.webp'
 
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" title="参赛对象">
-    <div text="5" h-full grid="~ cols-1 rows-2 gap-4 items-center lg:(cols-2 rows-1)" my="4vw">
+    <div text="5" h-full grid="~ cols-1 rows-2 gap-4 items-center lg:(cols-2 rows-1)">
       <div>
         <img :src="img1" class="w-full object-contain">
       </div>

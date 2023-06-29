@@ -13,7 +13,7 @@ function onClick() {
   <n-card hoverable class="news-item cursor-pointer rounded-4!" @click="onClick">
     <template #cover>
       <div p="4 b-0" class="w-full! overflow-hidden!">
-        <img class="img" max-h="260px" object="contain center" src="https://30850783.s21i.faiusr.com/2/ABUIABACGAAg_YzJowYohpyj1gQwgAg4qgU!700x700.jpg.webp">
+        <img class="img" max-h="120px" object="contain center" src="https://30850783.s21i.faiusr.com/2/ABUIABACGAAg_YzJowYohpyj1gQwgAg4qgU!700x700.jpg.webp">
       </div>
     </template>
     <template #header>

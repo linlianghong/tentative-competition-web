@@ -15,12 +15,16 @@ import img4 from 'src/assets/enter-competition/ABUIABAEGAAgl5XRowYotK7B0AQwkQI4t
         <div><img w-full object-cover :src="img3"></div>
         <div><img w-full object-cover :src="img4"></div>
       </div>
-      <div flex="~ gap-4vw justify-center">
-        <div border="1px primary solid" cursor="pointer" rounded="2" p="y-2vw x-5vw">
-          报名参赛
+      <div flex="~ gap-4vw justify-center" m="t-2vw">
+        <div>
+          <div btn>
+            报名参赛
+          </div>
         </div>
-        <div border="1px primary solid" cursor="pointer" rounded="2" p="y-2vw x-5vw">
-          附件下载
+        <div>
+          <div btn>
+            附件下载
+          </div>
         </div>
       </div>
     </div>

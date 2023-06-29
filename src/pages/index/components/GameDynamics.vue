@@ -15,7 +15,7 @@ function handleDetail() {}
       <NewsCard />
     </div>
     <div text-center m="t-5vw">
-      <div cursor="pointer" text="20px" border="1 primary solid" p="y-4 x-8vw" inline-block rounded-2 font-600 lt-lg="px-4vw py-2vw text-4" hover=" text-white bg-primary">
+      <div btn>
         了解更多
       </div>
     </div>

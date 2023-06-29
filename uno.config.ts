@@ -10,11 +10,11 @@ import {
 
 export default defineConfig({
   shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-block bg-teal-700 text-white cursor-pointer !outline-none hover:bg-teal-800 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+    ['btn', 'text-center inline-block cursor-pointer rounded-10px border-1 border-primary border-solid min-h-30px w-14vw text-primary text-14px py-1/150 transition-all transition-300 hover:(text-white bg-primary)'],
     ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
     // ['title-board', ' after:(bg-gradient-to-tr from-[#D44CE4] to-[#AA55D6])'],
     ['title-board', 'inline-block w-auto text-6 border-b-3 border-solid border-#D44CE4'],
-    ['article', 'leading-loose font-bold text-4'],
+    ['article', 'leading-3em font-normal text-14px'],
   ],
   theme: {
     colors: {

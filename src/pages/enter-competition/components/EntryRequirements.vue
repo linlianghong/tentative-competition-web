@@ -20,6 +20,11 @@ import bg from 'src/assets/enter-competition/c3.webp'
       <!-- <div>
         <img :src="img1" class="w-full object-contain">
       </div> -->
+      <div text="center" m="t-2vw">
+        <div btn>
+          原创承诺书模版下载
+        </div>
+      </div>
     </div>
   </PageItem>
 </template>

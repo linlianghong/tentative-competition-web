@@ -8,7 +8,7 @@ function handleDetail() {}
 
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" title="大赛作品">
-    <div m="t-4vw" grid="~ cols-4 gap-4 lt-lg:cols-2">
+    <div m="" grid="~ cols-4 gap-4 lt-lg:cols-2">
       <PhotoCard @detail="handleDetail" />
       <PhotoCard @detail="handleDetail" />
       <PhotoCard @detail="handleDetail" />

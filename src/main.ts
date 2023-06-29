@@ -21,5 +21,13 @@ export const createApp = ViteSSG(
     Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
       .forEach(i => i.install?.(ctx))
     // ctx.app.use(Previewer)
+
+    ctx.router.beforeEach((to, form, next) => {
+      const store = useTeamInfoStore()
+      if (to.path.includes('/user/') && !store.isLogin)
+        next('/')
+      else
+        next()
+    })
   },
 )

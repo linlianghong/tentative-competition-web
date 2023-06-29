@@ -5,6 +5,7 @@ const props = defineProps({
   bg: String,
   h5bg: String,
   title: String,
+  align: String,
   showFooter: { type: Boolean, default: false },
 })
 
@@ -29,20 +30,21 @@ function handleMousewheel(e: WheelEvent) {
 <template>
   <div
     class="page-item"
-    h="full" bg="no-repeat center cover" relative flex="~ col items-center" :style="{
+    h="full" bg="no-repeat center cover" relative flex="~ col items-center justify-center" :style="{
       '--page-item-bg': `url(${bg})`,
       '--page-item-h5-bg': `url(${h5bg ?? bg})`,
       'marginTop': isShowFooter ? `-${footerEl?.clientHeight}px` : 0,
+      'justifyContent': props.align,
     }"
     transition="margin duration-500"
     @wheel="handleMousewheel"
   >
     <!-- <img :src="bg" h-full w-full absolute="~ inset-0" object="center cover"> -->
-    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-6vw b-8 " lt-lg="mt-6vw text-16px">
+    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-4 b-8 " lt-lg="mt-6vw text-16px">
       <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
-    <div w-full flex-1 overflow-hidden px="1/10">
+    <div w-full overflow-hidden px="1/10">
       <slot />
     </div>
   </div>
