@@ -9,10 +9,13 @@ const formData = ref({ name: '', psw: '' })
 
 const router = useRouter()
 
+const store = useTeamInfoStore()
+
 const { run: api, loading } = useRequest(loginApi, {
   manual: true,
   onSuccess(res) {
     setTokenStorage(res.token)
+    store.updateTeamInfo()
     router.push('/user/profile')
   },
 

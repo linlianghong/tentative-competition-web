@@ -24,6 +24,32 @@ export interface RegisterInfo {
   status: string
   username: string
 }
+export interface UserInfo {
+  createBy: string
+  createTime: string
+  updateBy?: any
+  updateTime?: any
+  remark?: any
+  userId: number
+  deptId?: any
+  userName: string
+  nickName: string
+  email: string
+  phonenumber: string
+  sex: string
+  avatar: string
+  password: string
+  status: string
+  delFlag: string
+  loginIp: string
+  loginDate: string
+  dept?: any
+  roles: any[]
+  roleIds?: any
+  postIds?: any
+  roleId?: any
+  admin: boolean
+}
 
 export function login(params: {
   password: string
@@ -45,5 +71,5 @@ export function getCode(email: string) {
 }
 
 export function getUserInfo() {
-  return http.get<BaseResponse<any>>('/getInfo')
+  return http.get<BaseResponse & { user: UserInfo }>('/getInfo')
 }

@@ -2,11 +2,17 @@
 import { type MenuOption, NMenu } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 import { NAffix } from 'naive-ui'
+import { storeToRefs } from 'pinia'
+import avatarImg from 'src/assets/common/avatar1.png'
 import bg from '~/assets/header/header-bg.png'
 
 const router = useRouter()
 
 const activeKey = ref('')
+
+const store = useTeamInfoStore()
+
+const { isLogin } = storeToRefs(store)
 
 const menuOptions: MenuOption[] = [
   {
@@ -62,32 +68,35 @@ function menuNode() {
         </div>
         <div class="i-carbon:user cursor-pointer text-21px lg:hidden" />
         <div class="flex gap-4 lt-lg:hidden">
-          <n-button
-            :theme-overrides="{
-              borderHover: '#fff',
-              borderFocus: '#fff',
-              borderPressed: '#fff',
-              textColor: '#fff',
-              textColorHover: '#fff',
-              textColorFocus: '#fff',
-              textColorPressed: '#fff',
-            }" type="default" @click="router.push('/register')"
-          >
-            注册
-          </n-button>
-          <n-button
-            :theme-overrides="{
-              borderHover: '#fff',
-              borderFocus: '#fff',
-              borderPressed: '#fff',
-              textColor: '#fff',
-              textColorHover: '#fff',
-              textColorFocus: '#fff',
-              textColorPressed: '#fff',
-            }" type="default" @click="router.push('/login')"
-          >
-            登录
-          </n-button>
+          <template v-if="!isLogin">
+            <n-button
+              :theme-overrides="{
+                borderHover: '#fff',
+                borderFocus: '#fff',
+                borderPressed: '#fff',
+                textColor: '#fff',
+                textColorHover: '#fff',
+                textColorFocus: '#fff',
+                textColorPressed: '#fff',
+              }" type="default" @click="router.push('/register')"
+            >
+              注册
+            </n-button>
+            <n-button
+              :theme-overrides="{
+                borderHover: '#fff',
+                borderFocus: '#fff',
+                borderPressed: '#fff',
+                textColor: '#fff',
+                textColorHover: '#fff',
+                textColorFocus: '#fff',
+                textColorPressed: '#fff',
+              }" type="default" @click="router.push('/login')"
+            >
+              登录
+            </n-button>
+          </template>
+          <n-avatar v-else round :src="avatarImg" />
         </div>
       </div>
     </NAffix>

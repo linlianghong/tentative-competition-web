@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 
+const store = useTeamInfoStore()
+
+const { userInfo } = storeToRefs(store)
+
+const router = useRouter()
+function handleLogout() {
+  store.loginOut()
+  router.push('/')
+}
 </script>
 
 <template>
@@ -17,19 +27,19 @@
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">队伍账号： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
-            <span flex="1" text="center" />
+            <span flex="1" text="center">{{ userInfo?.userName }}</span>
           </span>
         </div>
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">绑定邮箱： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
-            <span flex="1" text="center" />
+            <span flex="1" text="center">{{ userInfo?.email }}</span>
           </span>
         </div>
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">绑定手机： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
-            <span flex="1" text="center" />
+            <span flex="1" text="center">{{ userInfo?.phonenumber }}</span>
           </span>
         </div>
         <div flex="~ gap-4 items-start" m="b-4">
@@ -40,7 +50,7 @@
         </div>
 
         <div class="mt-10">
-          <n-button type="primary" block>
+          <n-button type="primary" block @click="handleLogout">
             退出登陆
           </n-button>
         </div>

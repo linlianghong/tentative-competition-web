@@ -2,6 +2,10 @@
 import type { MenuOption } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 
+const store = useTeamInfoStore()
+
+store.updateTeamInfo()
+
 const menus = [
   {
     label: '账户信息',
