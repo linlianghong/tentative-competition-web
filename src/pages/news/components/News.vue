@@ -9,7 +9,7 @@ const page = ref(0)
 
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" show-footer>
-    <div h-full gap-4 pt-4vw flex="~ lt-lg:col-reverse">
+    <div h-full gap-4 pt-4vw flex="~ col-reverse ">
       <div p="4" bg="white" h-full flex-1 overflow-hidden rounded-4 lt-gt="h-auto " flex="~ col ">
         <div flex-1 overflow-hidden @wheel.stop>
           <n-scrollbar class="h-full!">

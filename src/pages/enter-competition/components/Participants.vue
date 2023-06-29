@@ -10,7 +10,7 @@ import h5bg from '~/assets/enter-competition/hc2.webp'
       <div>
         <img :src="img1" class="w-full object-contain">
       </div>
-      <div font="bold" text="4" border="2px gray-2 solid" p="4" rounded-4 bg="white opacity-70">
+      <div class="article" font="bold" text="4" border="2px gray-2 solid" p="4" rounded-4 bg="white opacity-70">
         湖北省内普通高等学校、科研院所相关专业学生。
         每支参赛队伍由团队成员、指导教师组成，团队成员最多3名，指导教师最多2名（其中必须包含1名科学指导教师，可以包含1名艺术指导教师），每名指导教师最多指导3支团队。
       </div>

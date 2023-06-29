@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
+import bg from 'src/assets/news/ABUIABAEGAAgh977owYoyZrRygQwvws4_wE.png'
 </script>
 
 <template>
-  <div rounded-4 text="14px" bg="white" p-4 lg="h-auto w-20vw">
+  <div :style="{ backgroundImage: `url(${bg})` }" rounded-4 text="14px #fff" bg="no-repeat cover" p-4 lg="h-auto w-full">
     <div text="5" font-500 m="b-4">
       大赛公告
     </div>
