@@ -26,7 +26,7 @@
 
 <style scoped>
 .app-layout{
-  --app-header-height: 110px;
+  --app-header-height: 80px;
 
   @apply h-full!;
 

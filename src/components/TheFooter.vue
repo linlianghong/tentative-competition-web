@@ -16,7 +16,7 @@ import qrcode from '~/assets/common/qrcode.png'
 </script>
 
 <template>
-  <nav flex="~ gap-6 justify-center lt-lg:col" p="x-1/10 t-89px b-116px" bg="#0C1E2F" text="#fff 18px">
+  <nav flex="~ gap-6 justify-center lt-lg:col" p="x-1/10 t-2vw b-2vw" bg="#0C1E2F" text="#fff 18px">
     <div flex="~ 1 col">
       <div>湖北省微生物培养皿艺术设计大赛</div>
 
