@@ -12,7 +12,7 @@ const activeKey = ref('')
 
 const store = useTeamInfoStore()
 
-const { isLogin } = storeToRefs(store)
+const { isLogin, userInfo } = storeToRefs(store)
 
 const menuOptions: MenuOption[] = [
   {
@@ -96,7 +96,25 @@ function menuNode() {
               登录
             </n-button>
           </template>
-          <n-avatar v-else round :src="avatarImg" />
+          <template v-else>
+            <n-popover
+              trigger="click" :style="{
+                borderRadius: '8px',
+              }"
+            >
+              <template #trigger>
+                <n-avatar round :src="avatarImg" />
+              </template>
+              <div p="2" cursor="pointer" text="center">
+                <div p="x-4 y-2" hover="bg-gray-1" @click="router.push('/user/profile')">
+                  {{ userInfo?.userName }}
+                </div>
+                <div p="x-4 y-2" hover="bg-gray-1" @click="store.loginOut(); router.push('/')">
+                  退出
+                </div>
+              </div>
+            </n-popover>
+          </template>
         </div>
       </div>
     </NAffix>
