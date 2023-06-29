@@ -1,11 +1,15 @@
 import type { BaseResponse } from '../http'
 
+export interface ScheduleItem {
+  key: string
+  val: string
+}
 export function getSchedules(scheduleId: string) {
-  return http.get<BaseResponse<any>>(`/client/previous/schedule-pullDown/${scheduleId}`)
+  return http.get<BaseResponse<ScheduleItem[]>>(`/client/previous/schedule-pullDown/${scheduleId}`)
 }
 
-export function getPreviousWorks(scheduleId: string, worksName: string) {
-  return http.get<BaseResponse<any>>('/client/previous/schedule-works', { params: { worksName, scheduleId } })
+export function getPreviousWorks(params: { scheduleId: string; worksName?: string }) {
+  return http.get<BaseResponse<any>>('/client/previous/schedule-works', { params })
 }
 
 export interface WorksImgList {
