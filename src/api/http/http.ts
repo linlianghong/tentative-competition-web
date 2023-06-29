@@ -1,6 +1,6 @@
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
-import { APP_BASE_URL } from '~/constant/'
+import { router } from '~/modules/router'
 
 // import { getTokenStore } from '../utils/storage/token'
 // import { setIsLogInAction, userLogout } from '../store/actions/login'
@@ -17,7 +17,7 @@ interface Axios extends AxiosInstance {
 }
 
 const http: Axios = axios.create({
-  baseURL: APP_BASE_URL,
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -45,9 +45,9 @@ http.interceptors.response.use(
 
     if (data.code !== 200 || response.status !== 200) {
       if (data.code === 401)
-      // router.push('/login')
+        router.push('/login')
 
-        message.error(data.msg || '网络错误，请稍后重试')
+      message.error(data.msg || '网络错误，请稍后重试')
       return Promise.reject(data)
     }
     return data

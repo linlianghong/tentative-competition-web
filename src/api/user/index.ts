@@ -29,7 +29,7 @@ export function login(params: {
   password: string
   username: string
 }) {
-  return http.post('/client/login', params)
+  return http.post<BaseResponse & { token: string }>('/client/login', params)
 }
 
 export function register(params: Partial<RegisterInfo>) {
@@ -42,4 +42,8 @@ export function getRegisterInfo(id: string) {
 
 export function getCode(email: string) {
   return http.post<BaseResponse<any>>('/client/code/getCode', email)
+}
+
+export function getUserInfo() {
+  return http.get<BaseResponse<any>>('/getInfo')
 }
