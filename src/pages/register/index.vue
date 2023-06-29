@@ -28,7 +28,7 @@ function register() {
     }).then((res) => {
       console.log(res)
 
-      // router.push('/')
+      router.push('/login')
     })
   })
 }

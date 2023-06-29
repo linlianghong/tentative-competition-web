@@ -67,7 +67,8 @@ export function getRegisterInfo(id: string) {
 }
 
 export function getCode(email: string) {
-  return http.post<BaseResponse<any>>('/client/code/getCode', email)
+  return http.post<BaseResponse<any>>('/client/code/getCode', { email },
+  )
 }
 
 export function getUserInfo() {
