@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 import generateSitemap from 'vite-ssg-sitemap'
@@ -14,7 +14,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // @ts-expect-error failed to resolve types
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import { APP_BASE_URL } from './src/constant'
+
+const env = loadEnv('development', process.cwd())
 
 export default defineConfig({
   build: {},
@@ -51,6 +52,11 @@ export default defineConfig({
         'vue-i18n',
         '@vueuse/head',
         '@vueuse/core',
+        {
+          'vue-request': [
+            'useRequest',
+          ],
+        },
         {
           'naive-ui': [
             'useDialog',
@@ -187,7 +193,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: APP_BASE_URL,
+        target: env.VITE_APP_SERVER,
         changeOrigin: true,
         rewrite(path) {
           return path.replace(/^\/api/, '')
