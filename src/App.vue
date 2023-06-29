@@ -12,6 +12,12 @@ catch (error) {
 
 }
 
+const store = useTeamInfoStore()
+
+store.updateBasicInfo()
+
+store.updateTeamInfo()
+
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg
@@ -93,7 +99,9 @@ const componentOptions: GlobalComponentConfig = {
 <template>
   <n-config-provider :theme-overrides="themeOverrides" :component-options="componentOptions">
     <n-dialog-provider>
-      <RouterView />
+      <n-message-provider>
+        <RouterView />
+      </n-message-provider>
     </n-dialog-provider>
   </n-config-provider>
 </template>

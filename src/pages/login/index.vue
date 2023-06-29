@@ -33,10 +33,10 @@ function register() {
 
 <template>
   <div w-60vw m="" p="" bg="#fff" rounded="xl" flex="~" overflow="hidden">
-    <div flex="1">
+    <div flex="1" bg="#F8F8F8">
       <img object-contain :src="img">
     </div>
-    <div flex="1" p="6">
+    <div flex="~ 1 col justify-center" p="6">
       <header>
         <span title-board>登陆</span>
       </header>

@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { UserInfo } from '~/api'
-import { getUserInfo } from '~/api'
+import type { BasicInfo, UserInfo } from '~/api'
+import { getBasicsInfoInfo, getUserInfo } from '~/api'
 
 export const useTeamInfoStore = defineStore('team-info', () => {
   const teamInfo = ref()
@@ -8,6 +8,14 @@ export const useTeamInfoStore = defineStore('team-info', () => {
   const userInfo = ref<UserInfo>()
 
   const isLogin = ref(false)
+
+  const basicInfo = ref<BasicInfo>()
+
+  function updateBasicInfo() {
+    getBasicsInfoInfo().then((res) => {
+      basicInfo.value = res.data
+    })
+  }
 
   function updateTeamInfo() {
     return getUserInfo().then((res) => {
@@ -26,7 +34,9 @@ export const useTeamInfoStore = defineStore('team-info', () => {
     teamInfo,
     isLogin,
     userInfo,
+    basicInfo,
     updateTeamInfo,
+    updateBasicInfo,
     loginOut,
   }
 })

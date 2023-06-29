@@ -7,9 +7,22 @@ export interface ScheduleItem {
 export function getSchedules(scheduleId: string) {
   return http.get<BaseResponse<ScheduleItem[]>>(`/client/previous/schedule-pullDown/${scheduleId}`)
 }
-
+export interface PreviousWork {
+  scheduleLabel: string
+  awardName: string
+  worksId: number
+  worksName: string
+  worksImgMain: number
+  worksImgMainUrl: string
+  worksImgCount: number
+  worksImg: string
+  authorName?: any
+  userId: number
+  worksOriginality: string
+  description: string
+}
 export function getPreviousWorks(params: { scheduleId: string; worksName?: string }) {
-  return http.get<BaseResponse<any>>('/client/previous/schedule-works', { params })
+  return http.get<BaseResponse<PreviousWork[]>>('/client/previous/schedule-works', { params })
 }
 
 export interface WorksImgList {

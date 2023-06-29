@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CSSProperties, PropType } from 'vue'
 import titlebg from '~/assets/common/title-bg.png'
 
 const props = defineProps({
@@ -6,6 +7,7 @@ const props = defineProps({
   h5bg: String,
   title: String,
   align: String,
+  contentStyle: Object as PropType<CSSProperties>,
   showFooter: { type: Boolean, default: false },
 })
 
@@ -44,7 +46,7 @@ function handleMousewheel(e: WheelEvent) {
       <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
-    <div w-full overflow-hidden px="1/10">
+    <div w-full overflow-hidden px="1/10" :style="contentStyle">
       <slot />
     </div>
   </div>

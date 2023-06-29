@@ -3,11 +3,13 @@ import type { FormInst, FormItemInst } from 'naive-ui'
 import img from 'src/assets/login/img.png'
 import { getCode, register as registerApi } from '~/api'
 
+const reg = /^1[0-9]{10}$/
+
 const form = ref<FormInst | null>()
 
 const emailItem = ref<FormItemInst | null>()
 
-const formData = ref({ name: '', email: '', code: '', psw1: '', psw2: '' })
+const formData = ref({ name: '', email: '', code: '', psw1: '', psw2: '', phonenumber: '' })
 
 const showCodeTime = ref(false)
 
@@ -21,7 +23,7 @@ function register() {
       code: formData.value.code,
       email: formData.value.email,
       password: formData.value.psw1,
-      // phonenumber: formData.value.code,
+      phonenumber: formData.value.phonenumber,
       // schoolName: formData.value.code,
       // status: formData.value.code,
       username: formData.value.name,
@@ -76,6 +78,13 @@ function validatorPsw(v1: string, v2: string) {
               <n-input v-model:value="formData.name" placeholder="请输入队伍名">
                 <template #prefix>
                   <div class="i-carbon:user" opacity-40 />
+                </template>
+              </n-input>
+            </n-form-item-gi>
+            <n-form-item-gi span="24" label="手机号码" :label-style="{ fontSize: '16px' }" :rule="[{ trigger: 'blur', required: true, message: '请输入手机号' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号码' }]" path="phonenumber" :show-require-mark="false">
+              <n-input v-model:value="formData.phonenumber" placeholder="请输入手机号码">
+                <template #prefix>
+                  <div class="i-carbon:locked" opacity-40 />
                 </template>
               </n-input>
             </n-form-item-gi>

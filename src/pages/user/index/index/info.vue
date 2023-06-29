@@ -1,10 +1,30 @@
 <script setup lang="tsx">
 import { type DataTableColumns, NButton, NSpace } from 'naive-ui'
+import { usePagination } from 'vue-request'
 import UploadWork from '../../components/upload-work.vue'
+import { getSubmitWorkList } from '~/api'
 
 const showModal = ref(false)
 
-const data = ref([])
+// const data = ref([])
+
+const store = useTeamInfoStore()
+
+const { basicInfo, userInfo } = storeToRefs(store)
+
+const { data, current, total, pageSize, run } = usePagination(getSubmitWorkList, {
+  defaultParams: [{
+    scheduleId: basicInfo.value?.scheduleId,
+    userId: userInfo.value?.userId,
+    pageNumber: 1,
+    pageSize: 10,
+  }],
+  pagination: {
+    currentKey: 'pageNumber',
+    pageSizeKey: 'pageSize',
+    totalKey: 'total',
+  },
+})
 
 const columns: DataTableColumns = [
   {
@@ -49,6 +69,17 @@ function handleUpload() {
   //   content: () => <UploadWork />,
   // })
 }
+
+function handleSubmit() {
+  showModal.value = false
+  current.value = 0
+  run({
+    pageNumber: current.value,
+    pageSize: pageSize.value,
+    scheduleId: basicInfo.value?.scheduleId,
+    userId: userInfo.value?.userId,
+  })
+}
 </script>
 
 <template>
@@ -63,10 +94,19 @@ function handleUpload() {
     </div>
     <div bg="#fff" flex="~ 1  col" p="4">
       <n-data-table
+        remote
         flex-height
         :columns="columns"
-        :data="data"
+        :data="data?.data"
         :bordered="false"
+        :pagination="{
+          itemCount: total,
+          pageSize,
+          page: current,
+          onUpdatePage(page) {
+            current.value = page
+          },
+        }"
       />
 
       <div text="4 " font="500" m="y-4">
@@ -85,7 +125,6 @@ function handleUpload() {
 
   <n-modal v-model:show="showModal" closable>
     <n-card
-
       style="width: 80vw;  overflow: hidden;"
       title="模态框"
       :bordered="false"
@@ -98,7 +137,7 @@ function handleUpload() {
           上传作品
         </div>
       </template>
-      <UploadWork />
+      <UploadWork @submit="handleSubmit" />
     </n-card>
   </n-modal>
 </template>

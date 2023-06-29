@@ -60,8 +60,8 @@ function menuNode() {
           </template>
           <menuNode />
         </n-popover>
-        <div text="22px" font="bold" max-w="253px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
-          湖北省第二届微生物培养皿艺术设计大赛
+        <div text="22px" font="bold" max-w="190px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
+          湖北省微生物培养皿艺术设计大赛
         </div>
         <div h="full" class="lt-lg:hidden">
           <menuNode />

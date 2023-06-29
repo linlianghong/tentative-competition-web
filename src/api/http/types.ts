@@ -4,3 +4,8 @@ export interface BaseResponse<T = any> {
   msg: string
   success: boolean
 }
+
+export interface PageRequest {
+  pageNumber: number
+  pageSize: number
+}

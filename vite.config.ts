@@ -56,6 +56,11 @@ export default defineConfig({
         '@vueuse/head',
         '@vueuse/core',
         {
+          pinia: [
+            'storeToRefs',
+          ],
+        },
+        {
           'vue-request': [
             'useRequest',
           ],

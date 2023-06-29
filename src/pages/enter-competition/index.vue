@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
+import bg from 'src/assets/enter-competition/WechatIMG88.jpeg'
 import Banner from './components/Banner.vue'
 import GameProfile from './components/GameProfile.vue'
 import Participants from './components/Participants.vue'
@@ -25,6 +26,9 @@ const modules = [Mousewheel, Pagination]
     class="mySwiper"
   >
     <SwiperSlide><Banner /></SwiperSlide>
+    <SwiperSlide>
+      <PageItem :bg="bg" :h5bg="bg" />
+    </SwiperSlide>
     <SwiperSlide>
       <GameProfile />
     </SwiperSlide>
