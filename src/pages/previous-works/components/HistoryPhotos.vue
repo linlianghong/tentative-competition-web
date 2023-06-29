@@ -4,6 +4,8 @@ import SectionTitle from '~/components/SectionTitle.vue'
 import PhotoCard from '~/pages/index/components/PhotoCard.vue'
 
 const activeKey = ref('0')
+
+//  const {data} = useRequest()
 </script>
 
 <template>
