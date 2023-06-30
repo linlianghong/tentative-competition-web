@@ -84,9 +84,7 @@ function hanldeUpdate(key: string) {
           <div>
             <SectionTitle title="一等奖" />
             <div flex="~ justify-center gap-4vw">
-              <div flex="1" m-w="33.33%">
-                <PhotoCard v-for="item of groupList['一等奖']" :id="item.worksId" :key="item.worksId" :max-height="220" :title="item.worksName" :desc="item.description" :img-url="item.worksImgMainUrl" />
-              </div>
+              <PhotoCard v-for="item of groupList['一等奖']" :id="item.worksId" :key="item.worksId" :max-height="220" :title="item.worksName" :desc="item.description" :img-url="item.worksImgMainUrl" />
             </div>
           </div>
           <div>

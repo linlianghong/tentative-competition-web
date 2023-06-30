@@ -61,11 +61,13 @@ function menuNode() {
           </template>
           <menuNode />
         </n-popover>
-        <div m="r-2" lt-lg:hidden>
-          <img :src="logo" w-70px object-contain>
-        </div>
-        <div text="22px" font="bold" max-w="190px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
-          湖北省微生物培养皿艺术设计大赛
+        <div flex="~">
+          <div m="r-2" lt-lg:hidden>
+            <img :src="logo" w-70px object-contain>
+          </div>
+          <div text="22px" font="bold" max-w="190px" m="r-8" class="lt-lg:(max-w-none text-13px)" word-break="break-all">
+            湖北省微生物培养皿艺术设计大赛
+          </div>
         </div>
         <div h="full" class="lt-lg:hidden">
           <menuNode />
