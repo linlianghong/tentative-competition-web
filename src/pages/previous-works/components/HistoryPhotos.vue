@@ -5,7 +5,7 @@ import { getPreviousWorks, getSchedules } from '~/api'
 import SectionTitle from '~/components/SectionTitle.vue'
 import PhotoCard from '~/pages/index/components/PhotoCard.vue'
 
-const activeKey = ref('0')
+const activeKey = ref('')
 
 const workName = ref('')
 
@@ -52,6 +52,8 @@ function search() {
 }
 
 function hanldeUpdate(key: string) {
+  if (!key)
+    return
   activeKey.value = key
   search()
 }
