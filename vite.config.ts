@@ -210,4 +210,16 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: env.VITE_APP_SERVER,
+        changeOrigin: true,
+        rewrite(path) {
+          return path.replace(/^\/api/, '')
+        },
+      },
+    },
+  },
 })
