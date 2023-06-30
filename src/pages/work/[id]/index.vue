@@ -90,8 +90,12 @@ const imgs = computed(() => {
     </div> -->
 
     <div leading="24px" text="4 #666" m="y-5">
-      <div>【团队成员】{{ registerInfo?.data.memberInfos.map(d => d.memberName).join('、') }}</div>
-      <!-- <div>【指导老师】{{ registerInfo?.data.teacherInfos.map(d => d.memberName).join('、') }}</div> -->
+      <div v-if="data?.data.awardName">
+        【所获奖项】{{ data?.data.awardName }}
+      </div>
+      <div v-if="registerInfo?.data.memberInfos?.length">
+        【团队成员】{{ registerInfo?.data.memberInfos.map(d => d.memberName).join('、') }}
+      </div>
       <div v-if="data?.data.studyContent">
         【研究内容】{{ data?.data.studyContent }}
       </div>

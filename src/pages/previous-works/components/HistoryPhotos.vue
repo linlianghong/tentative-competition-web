@@ -21,7 +21,8 @@ const { run: getSchedulesApi, data: schedules, loading } = useRequest(getSchedul
   manual: true,
   onSuccess(d) {
     activeKey.value = d.data[0]?.key
-    getList({ scheduleId: activeKey.value, worksName: '' })
+    if (d.data?.length)
+      getList({ scheduleId: activeKey.value, worksName: '' })
   },
 })
 
@@ -83,7 +84,9 @@ function hanldeUpdate(key: string) {
           <div>
             <SectionTitle title="一等奖" />
             <div flex="~ justify-center gap-4vw">
-              <PhotoCard v-for="item of groupList['一等奖']" :id="item.worksId" :key="item.worksId" :max-height="220" :title="item.worksName" :desc="item.description" :img-url="item.worksImgMainUrl" />
+              <div flex="1" m-w="33.33%">
+                <PhotoCard v-for="item of groupList['一等奖']" :id="item.worksId" :key="item.worksId" :max-height="220" :title="item.worksName" :desc="item.description" :img-url="item.worksImgMainUrl" />
+              </div>
             </div>
           </div>
           <div>

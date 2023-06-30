@@ -76,6 +76,7 @@ export interface WorkInfo {
   createBy: number
   createTime: string
   awardConfigId: number
+  awardName: string
   score: string
   finallyScore: number
 }
