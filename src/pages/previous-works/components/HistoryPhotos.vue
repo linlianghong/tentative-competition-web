@@ -37,10 +37,8 @@ const groupList = computed(() => {
   }, {})
 })
 
-watchEffect(() => {
-  if (basicInfo.value?.scheduleId)
-    getSchedulesApi(`${basicInfo.value.scheduleId}`)
-})
+if (basicInfo.value?.scheduleId)
+  getSchedulesApi(`${basicInfo.value.scheduleId}`)
 
 // const { data: basicInfo } = useRequest(getBasicsInfoInfo, {
 //   onSuccess(data) {
