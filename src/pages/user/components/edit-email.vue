@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FormInst, FormItemInst } from 'naive-ui'
-import { getCode, updateUserInfo } from '~/api'
+import { getEmailCode, updateUserInfoByCode } from '~/api'
 
 const show = ref(false)
 
@@ -10,12 +10,16 @@ const form = ref<FormInst | null>()
 
 const formData = ref({ email: '', code: '' })
 
+const store = useTeamInfoStore()
+const { userInfo } = storeToRefs(store)
+
 const message = useMessage()
 
-const { run, loading } = useRequest(updateUserInfo, {
+const { run, loading } = useRequest(updateUserInfoByCode, {
   manual: true,
   onSuccess() {
     show.value = false
+    store.updateTeamInfo()
     message.success('修改成功')
   },
 })
@@ -24,9 +28,11 @@ const showCodeTime = ref(false)
 
 const codeTime = ref(60)
 
-const { run: sendEmailCode, loading: codeLoading } = useRequest(getCode, {
+const { run: sendEmailCode, loading: codeLoading } = useRequest(getEmailCode, {
   manual: true,
   onSuccess() {
+    message.success('发送验证码成功')
+
     showCodeTime.value = true
 
     const timer = setInterval(() => {
@@ -49,11 +55,10 @@ async function sendCode() {
 
   sendEmailCode(formData.value.email)
 }
-const { userInfo } = storeToRefs(useTeamInfoStore())
 
 function handleSubmit() {
   form.value?.validate().then(() => {
-    run({ userId: userInfo.value?.userId, email: formData.value.email })
+    run({ userId: userInfo.value?.userId, email: formData.value.email, code: formData.value.code })
   })
 }
 </script>

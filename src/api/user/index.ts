@@ -77,8 +77,16 @@ export function getUserInfo() {
   })
 }
 
+export function updateUserInfoByCode(params: Partial<UserInfoParams>) {
+  return http.post<BaseResponse>('/system/user/updateByCode', params)
+}
+
 export function updateUserInfo(params: Partial<UserInfoParams>) {
-  return http.post<BaseResponse>('system/user', params)
+  return http.post<BaseResponse>('/system/user/updateUser', params)
+}
+
+export function getEmailCode(email: string) {
+  return http.post<BaseResponse>('/client/code/getUpdateUserCode', { email })
 }
 
 export interface UserInfoParams {
@@ -106,4 +114,5 @@ export interface UserInfoParams {
   postIds: any[]
   roleId?: any
   admin: boolean
+  code?: string
 }

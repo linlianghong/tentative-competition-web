@@ -6,6 +6,16 @@ const store = useTeamInfoStore()
 
 store.updateTeamInfo()
 
+const dialog = useDialog()
+
+store.updateApplyInfo().then((data) => {
+  if (!data?.memberInfoVos?.length) {
+    dialog.warning({
+      title: '请尽快提交报名信息',
+    })
+  }
+})
+
 const menus = [
   {
     label: '账户信息',

@@ -92,7 +92,13 @@ export interface MemberInfoVo {
   id: number
   job: string
   memberName: string
-  memberType: string
+  /**
+   * TEAM_LEADER("队长"),
+    TEAM_MEMBER("队员"),
+    TEACHER("指导老师"),
+    ART_TEACHER("老师");
+   */
+  memberType: 'ART_TEACHER' | 'TEACHER' | 'TEAM_LEADER' | 'TEAM_MEMBER'
   phone: string
   profession: string
   scheduleId: number
@@ -101,11 +107,27 @@ export interface MemberInfoVo {
   userId: number
 }
 
+export interface ImitateWorksItem {
+  id: number
+  imitateImagine: string
+  imitateWorksName: string
+  isGroupImg: number
+  scheduleId: number
+  userId: number
+}
+
 export interface SubmitApplyParams {
+  imitateWorksList: ImitateWorksItem[]
   memberInfoVos: MemberInfoVo[]
+  schoolName: string
+  tempMemberInfoVos?: MemberInfoVo[]
 }
 
 /** 提交报名信息 */
 export function submitApply(params: SubmitApplyParams) {
   return http.post<BaseResponse>('/client/works/submit-apply', params)
+}
+
+export function getSubmitApply() {
+  return http.get<BaseResponse<SubmitApplyParams>>('/client/works/imitateWorksInfo')
 }

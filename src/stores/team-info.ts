@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { BasicInfo, UserInfo } from '~/api'
-import { getBasicsInfoInfo, getUserInfo } from '~/api'
+import type { BasicInfo, SubmitApplyParams, UserInfo } from '~/api'
+import { getBasicsInfoInfo, getSubmitApply, getUserInfo } from '~/api'
 
 export const useTeamInfoStore = defineStore('team-info', () => {
   const teamInfo = ref()
@@ -10,6 +10,8 @@ export const useTeamInfoStore = defineStore('team-info', () => {
   const isLogin = ref(false)
 
   const basicInfo = ref<BasicInfo>()
+
+  const applyInfo = ref<SubmitApplyParams>()
 
   function updateBasicInfo() {
     return getBasicsInfoInfo().then((res) => {
@@ -28,6 +30,13 @@ export const useTeamInfoStore = defineStore('team-info', () => {
     })
   }
 
+  function updateApplyInfo() {
+    return getSubmitApply().then((res) => {
+      applyInfo.value = res.data
+      return res.data
+    })
+  }
+
   function loginOut() {
     isLogin.value = false
     clearTokenStorage()
@@ -38,8 +47,10 @@ export const useTeamInfoStore = defineStore('team-info', () => {
     isLogin,
     userInfo,
     basicInfo,
+    applyInfo,
     updateTeamInfo,
     updateBasicInfo,
+    updateApplyInfo,
     loginOut,
   }
 })

@@ -12,18 +12,21 @@ const formData = ref({ phone: '', code: '' })
 
 const message = useMessage()
 
+const store = useTeamInfoStore()
+const { userInfo } = storeToRefs(store)
+
 const { run, loading } = useRequest(updateUserInfo, {
   manual: true,
   onSuccess() {
     show.value = false
     message.success('修改成功')
+    store.updateTeamInfo()
   },
 })
 
 function handleOpen() {
   show.value = true
 }
-const { userInfo } = storeToRefs(useTeamInfoStore())
 function handleSubmit() {
   form.value?.validate().then(() => {
     run({ userId: userInfo.value?.userId, phonenumber: formData.value.phone })
