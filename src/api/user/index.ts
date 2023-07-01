@@ -72,5 +72,7 @@ export function getCode(email: string) {
 }
 
 export function getUserInfo() {
-  return http.get<BaseResponse & { user: UserInfo }>('/getInfo')
+  return http.get<BaseResponse & { user: UserInfo }>('/getInfo', {
+    silent: true,
+  })
 }

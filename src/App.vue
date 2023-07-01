@@ -14,7 +14,9 @@ catch (error) {
 
 const store = useTeamInfoStore()
 
-store.updateBasicInfo()
+const loaded = ref(false)
+
+store.updateBasicInfo().finally(() => loaded.value = true)
 
 store.updateTeamInfo()
 
@@ -34,7 +36,7 @@ useHead({
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
+      href: () => '/favicon.jpg',
     },
   ],
 })
@@ -97,7 +99,7 @@ const componentOptions: GlobalComponentConfig = {
 </script>
 
 <template>
-  <n-config-provider :theme-overrides="themeOverrides" :component-options="componentOptions">
+  <n-config-provider v-if="loaded" :theme-overrides="themeOverrides" :component-options="componentOptions">
     <n-dialog-provider>
       <n-message-provider>
         <RouterView />

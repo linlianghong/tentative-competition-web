@@ -4,7 +4,7 @@ import h5bg from 'src/assets/previous-works/ABUIABACGAAgupj2owYote6e5wYwoAs4gBQ.
 </script>
 
 <template>
-  <PageItem :bg="bg" :h5bg="h5bg">
+  <PageItem :bg="bg" :h5bg="h5bg" :content-style="{ flex: 1 }">
     <div class="home-item" />
   </PageItem>
 </template>

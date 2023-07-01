@@ -12,7 +12,7 @@ export const useTeamInfoStore = defineStore('team-info', () => {
   const basicInfo = ref<BasicInfo>()
 
   function updateBasicInfo() {
-    getBasicsInfoInfo().then((res) => {
+    return getBasicsInfoInfo().then((res) => {
       basicInfo.value = res.data
     })
   }
@@ -22,6 +22,9 @@ export const useTeamInfoStore = defineStore('team-info', () => {
       isLogin.value = true
       userInfo.value = res.user
       // return getRegisterInfo(res.user.)
+    }, () => {
+      isLogin.value = false
+      userInfo.value = undefined
     })
   }
 

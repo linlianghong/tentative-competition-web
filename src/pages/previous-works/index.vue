@@ -4,6 +4,8 @@ import Banner from './components/Banner.vue'
 import HistoryPhotos from './components/HistoryPhotos.vue'
 
 const modules = [Mousewheel, Pagination]
+const swiperInst = ref()
+const activeIndex = ref(0)
 </script>
 
 <template>
@@ -19,12 +21,16 @@ const modules = [Mousewheel, Pagination]
     }"
     :modules="modules"
     class="mySwiper"
+
+    @active-index-change="activeIndex = $event.activeIndex"
+    @init="swiperInst = $event"
   >
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
       <HistoryPhotos />
     </SwiperSlide>
   </Swiper>
+  <BackTop :swiper="swiperInst" :active-index="activeIndex" />
 </template>
 
 <style scoped>
@@ -35,5 +41,5 @@ const modules = [Mousewheel, Pagination]
 
 <route lang="yaml">
 meta:
-  layout: no-footer
+  layout: header-no-footer
 </route>

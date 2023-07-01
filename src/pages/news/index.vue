@@ -4,6 +4,8 @@ import Banner from './components/Banner.vue'
 import News from './components/News.vue'
 
 const modules = [Mousewheel, Pagination]
+const swiperInst = ref()
+const activeIndex = ref(0)
 </script>
 
 <template>
@@ -19,12 +21,15 @@ const modules = [Mousewheel, Pagination]
     }"
     :modules="modules"
     class="mySwiper"
+    @active-index-change="activeIndex = $event.activeIndex"
+    @init="swiperInst = $event"
   >
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
       <News />
     </SwiperSlide>
   </Swiper>
+  <BackTop :swiper="swiperInst" :active-index="activeIndex" />
 </template>
 
 <style scoped>

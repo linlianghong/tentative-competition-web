@@ -4,7 +4,7 @@ import bg from '~/assets/news/ABUIABACGAAg6pX2owYokNmbggIwgA84zAc.jpg'
 </script>
 
 <template>
-  <PageItem :bg="bg" :h5bg="h5bg">
+  <PageItem :bg="bg" :h5bg="h5bg" show-header :content-style="{ flex: 1 }">
     <div class="home-item" />
   </PageItem>
 </template>

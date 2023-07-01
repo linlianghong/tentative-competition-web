@@ -8,6 +8,8 @@ const props = defineProps({
   title: String,
   align: String,
   contentStyle: Object as PropType<CSSProperties>,
+  titleStyle: Object as PropType<CSSProperties>,
+  showHeader: { type: Boolean, default: false },
   showFooter: { type: Boolean, default: false },
 })
 
@@ -37,12 +39,15 @@ function handleMousewheel(e: WheelEvent) {
       '--page-item-h5-bg': `url(${h5bg ?? bg})`,
       'marginTop': isShowFooter ? `-${footerEl?.clientHeight}px` : 0,
       'justifyContent': props.align,
+      'backgroundPositionY': showHeader ? `var(--app-header-height)` : '',
     }"
     transition="margin duration-500"
     @wheel="handleMousewheel"
   >
+    <TheHeader v-if="showHeader" />
+
     <!-- <img :src="bg" h-full w-full absolute="~ inset-0" object="center cover"> -->
-    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-4 b-8 " lt-lg="mt-6vw text-16px">
+    <div v-if="title" relative="~" text="28px" font="bold" flex="~ justify-center items-center" px="8em" m="t-4 b-8 " lt-lg="mt-6vw text-16px" :style="titleStyle">
       <span relative z="2">{{ title }}</span>
       <img absolute="~ inset-0" :src="titlebg" alt="">
     </div>
@@ -58,7 +63,9 @@ function handleMousewheel(e: WheelEvent) {
 <style scoped>
 .page-item {
   background-image: var(--page-item-bg);
-  @media (max-width: 1023.9px) {
+}
+@screen lt-lg {
+  .page-item {
     background-image: var(--page-item-h5-bg);
   }
 }

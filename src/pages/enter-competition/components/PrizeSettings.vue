@@ -9,7 +9,7 @@ import no4 from 'src/assets/enter-competition/ABUIABAEGAAg8-zRowYogOikrwMw9QU4kg
 </script>
 
 <template>
-  <PageItem :bg="bg" title="奖项设置">
+  <PageItem :bg="bg" title="奖项设置" :title-style="{ marginBottom: '4vw' }">
     <div h-full grid="~ cols-1 gap-4vw items-center lg:cols-2">
       <div grid="~ cols-3 items-center gap-4" font="bold">
         <div grid="col-span-3">

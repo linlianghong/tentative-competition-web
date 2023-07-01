@@ -10,6 +10,9 @@ import GameOrg from './components/GameOrg.vue'
 import GameDate from './components/GameDate.vue'
 
 const modules = [Mousewheel, Pagination]
+
+const swiperInst = ref()
+const activeIndex = ref(0)
 </script>
 
 <template>
@@ -24,6 +27,8 @@ const modules = [Mousewheel, Pagination]
     }"
     :modules="modules"
     class="mySwiper"
+    @active-index-change="activeIndex = $event.activeIndex"
+    @init="swiperInst = $event"
   >
     <SwiperSlide><Welcome /></SwiperSlide>
     <SwiperSlide><GameDynamics /></SwiperSlide>
@@ -32,6 +37,8 @@ const modules = [Mousewheel, Pagination]
     <SwiperSlide><GameWork /></SwiperSlide>
     <SwiperSlide><GameOrg /></SwiperSlide>
   </Swiper>
+
+  <BackTop :swiper="swiperInst" :active-index="activeIndex" />
 </template>
 
 <style scoped>

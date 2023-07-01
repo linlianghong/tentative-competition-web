@@ -9,6 +9,8 @@ import PrizeSettings from './components/PrizeSettings.vue'
 import Standard from './components/Standard.vue'
 
 const modules = [Mousewheel, Pagination]
+const swiperInst = ref()
+const activeIndex = ref(0)
 </script>
 
 <template>
@@ -24,10 +26,14 @@ const modules = [Mousewheel, Pagination]
     }"
     :modules="modules"
     class="mySwiper"
+    @active-index-change="activeIndex = $event.activeIndex"
+    @init="swiperInst = $event"
   >
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
-      <PageItem :bg="bg" :h5bg="bg" />
+      <PageItem :bg="bg" :h5bg="bg" title="大赛主题" :content-style="{ height: '70%' }">
+        <div />
+      </PageItem>
     </SwiperSlide>
     <SwiperSlide>
       <GameProfile />
@@ -45,6 +51,7 @@ const modules = [Mousewheel, Pagination]
       <Standard />
     </SwiperSlide>
   </Swiper>
+  <BackTop :swiper="swiperInst" :active-index="activeIndex" />
 </template>
 
 <style scoped>

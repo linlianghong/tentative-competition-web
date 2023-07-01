@@ -17,6 +17,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Markdown from 'vite-plugin-vue-markdown'
 import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from 'markdown-it-shiki'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 const env = loadEnv('development', process.cwd())
 
@@ -168,7 +169,7 @@ export default defineConfig({
     // WebfontDownload(),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    // VueDevTools(),
+    VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest

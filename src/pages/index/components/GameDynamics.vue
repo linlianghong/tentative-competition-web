@@ -3,6 +3,11 @@ import NewsCard from './NewsCard.vue'
 import bg from '~/assets/home/home_3_02.jpg'
 import h5bg from '~/assets/home/h5-home1.jpg'
 
+const router = useRouter()
+function handleClick() {
+  router.push('/news')
+}
+
 function handleDetail() {}
 </script>
 
@@ -15,7 +20,7 @@ function handleDetail() {}
       <NewsCard />
     </div>
     <div text-center m="t-5vw">
-      <div btn>
+      <div btn @click="handleClick">
         了解更多
       </div>
     </div>

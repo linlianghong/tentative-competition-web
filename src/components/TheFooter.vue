@@ -18,7 +18,7 @@ import qrcode from '~/assets/common/qrcode.png'
 <template>
   <nav flex="~ gap-6 justify-center lt-lg:col" p="x-1/10 t-2vw b-2vw" bg="#0C1E2F" text="#fff 18px">
     <div flex="~ 1 col">
-      <div>湖北省微生物培养皿艺术设计大赛</div>
+      <div>湖北省微生物培养皿艺术设计大赛 <span>组委会</span></div>
 
       <img w-full py-6 :src="dividerImg">
 
@@ -35,8 +35,8 @@ import qrcode from '~/assets/common/qrcode.png'
       </div>
     </div>
     <div flex="~ 1 justify-center col items-center">
-      <img p="2" bg="white" h-118px w-118px :src="qrcode">
-      <div m="t-4">
+      <n-image p="1" width="118" w-118px object="contain" :src="qrcode" />
+      <div m="t-4 ">
         加入QQ群
       </div>
     </div>

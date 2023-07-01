@@ -3,17 +3,18 @@
 
 <template>
   <n-layout class="app-layout">
+    <TheHeader />
     <n-layout-content
       :content-style="{
 
       }"
     >
       <n-layout
-        class="app-layout-content" :content-style="{ height: `100%` }"
+        class="app-layout-content" :content-style="{ height: `calc(100vh - var(--app-header-height))` }"
       >
         <n-layout-content
           h-full
-          :content-style="{ height: `100vh` }"
+          :content-style="{ height: `calc(100vh - var(--app-header-height))` }"
         >
           <RouterView />
         </n-layout-content>
