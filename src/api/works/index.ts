@@ -79,7 +79,33 @@ export interface WorkInfo {
   awardName: string
   score: string
   finallyScore: number
+  content: string
 }
+
 export function getWorkById(id: string) {
   return http.get<BaseResponse<WorkInfo>>(`/client/works/${id}`)
+}
+
+export interface MemberInfoVo {
+  education: string
+  grade: string
+  id: number
+  job: string
+  memberName: string
+  memberType: string
+  phone: string
+  profession: string
+  scheduleId: number
+  sex: string
+  unit: string
+  userId: number
+}
+
+export interface SubmitApplyParams {
+  memberInfoVos: MemberInfoVo[]
+}
+
+/** 提交报名信息 */
+export function submitApply(params: SubmitApplyParams) {
+  return http.post<BaseResponse>('/client/works/submit-apply', params)
 }

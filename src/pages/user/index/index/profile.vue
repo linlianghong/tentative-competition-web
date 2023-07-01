@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import EditEmail from '../../components/edit-email.vue'
+import EditPhone from '../../components/edit-phone.vue'
+import EditPassword from '../../components/edit-password.vue'
 
 const store = useTeamInfoStore()
 
@@ -34,18 +37,21 @@ function handleLogout() {
           <span w-5em text="right 4">绑定邮箱： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
             <span flex="1" text="center">{{ userInfo?.email }}</span>
+            <EditEmail />
           </span>
         </div>
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">绑定手机： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
             <span flex="1" text="center">{{ userInfo?.phonenumber }}</span>
+            <EditPhone />
           </span>
         </div>
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">密码： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
             <span flex="1" text="center">*************</span>
+            <EditPassword />
           </span>
         </div>
 

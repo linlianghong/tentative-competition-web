@@ -14,26 +14,30 @@ useRequest(getSchedules, {
   defaultParams: [`${basicInfo.value?.scheduleId}`],
   onSuccess(d) {
     if (d.data?.length)
-      /** todo */
+      // TODO
       // run(d.data[0].key)
       run(`${basicInfo.value!.scheduleId}`)
   },
 })
 
 function handleDetail() {}
+
+const router = useRouter()
+function handleMore() {
+  router.push('/previous-works')
+}
 </script>
 
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" title="往届作品">
     <div m="" grid="~ cols-4 gap-4 lt-lg:cols-2">
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
-      <PhotoCard @detail="handleDetail" />
+      <PhotoCard v-for="item of data?.data" :id="item.worksId" :key="item.worksId" :img-url="getAssetUrl(item.imgUrl)" :title="item.worksName" :desc="item.content" @detail="handleDetail" />
+    </div>
+
+    <div m="t-2vw" text="center">
+      <div btn @click="handleMore">
+        查看更多
+      </div>
     </div>
   </PageItem>
 </template>

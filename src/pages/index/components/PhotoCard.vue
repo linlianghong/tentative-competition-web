@@ -25,7 +25,7 @@ function onClick() {
   <n-card hoverable class="news-item cursor-pointer rounded-4!" @click="onClick">
     <template #cover>
       <div p="4 b-0" class="w-full! overflow-hidden!">
-        <img class="img" :style="{ maxHeight: `${maxHeight}px` }" object="contain center" :src="imgUrl ? getAssetUrl(imgUrl) : 'https://30850783.s21i.faiusr.com/2/ABUIABACGAAg_YzJowYohpyj1gQwgAg4qgU!700x700.jpg.webp'">
+        <img class="img" :style="{ maxHeight: `${maxHeight}px`, minHeight: '100px' }" object="contain center" :src="imgUrl ? getAssetUrl(imgUrl) : 'https://30850783.s21i.faiusr.com/2/ABUIABACGAAg_YzJowYohpyj1gQwgAg4qgU!700x700.jpg.webp'">
       </div>
     </template>
     <template #header>

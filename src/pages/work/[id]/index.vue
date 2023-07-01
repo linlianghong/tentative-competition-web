@@ -90,7 +90,10 @@ const imgs = computed(() => {
     </div> -->
 
     <div leading="24px" text="4 #666" m="y-5">
-      <div v-if="data?.data.awardName">
+      <div whitespace="pre-wrap">
+        {{ data?.data.content }}
+      </div>
+      <!-- <div v-if="data?.data.awardName">
         【所获奖项】{{ data?.data.awardName }}
       </div>
       <div v-if="registerInfo?.data.memberInfos?.length">
@@ -104,7 +107,7 @@ const imgs = computed(() => {
       </div>
       <div v-if="data?.data.worksIntro">
         【作品简介】{{ data?.data.worksIntro }}
-      </div>
+      </div> -->
     </div>
 
     <!-- <div flex="~ col gap-4">

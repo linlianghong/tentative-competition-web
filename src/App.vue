@@ -66,6 +66,16 @@ const themeOverrides: GlobalThemeOverrides = {
     textColorTextHover: 'rgba(186, 54, 210, .8)',
     textColorTextPressed: 'rgba(186, 54, 210, .8)',
     textColorTextFocus: 'rgba(186, 54, 210, .8)',
+
+    // default
+    borderHover: 'rgba(186, 54, 210, .8)',
+    textColorHover: 'rgba(186, 54, 210, .8)',
+    textColorFocus: 'rgba(186, 54, 210, .8)',
+    textColorPressed: 'rgba(186, 54, 210, .8)',
+    borderColorHover: 'rgba(186, 54, 210, .8)',
+    borderColorFocus: 'rgba(186, 54, 210, .8)',
+    borderColorPressed: 'rgba(186, 54, 210, .8)',
+
     // textColorPrimary: '#fff',
     // rippleColorPrimary: 'rgba(186, 54, 210, 1)',
     // colorFocusPrimary: 'rgba(186, 54, 210, 1)',

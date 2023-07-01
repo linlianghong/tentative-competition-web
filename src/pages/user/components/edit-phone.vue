@@ -2,11 +2,13 @@
 import type { FormInst } from 'naive-ui'
 import { updateUserInfo } from '~/api'
 
+const reg = /^1[0-9]{10}$/
+
 const show = ref(false)
 
 const form = ref<FormInst | null>()
 
-const formData = ref({ psw1: '', psw2: '' })
+const formData = ref({ phone: '', code: '' })
 
 const message = useMessage()
 
@@ -22,15 +24,10 @@ function handleOpen() {
   show.value = true
 }
 const { userInfo } = storeToRefs(useTeamInfoStore())
-
 function handleSubmit() {
   form.value?.validate().then(() => {
-    run({ userId: userInfo.value?.userId, password: formData.value.psw1 })
+    run({ userId: userInfo.value?.userId, phonenumber: formData.value.phone })
   })
-}
-
-function validatorPsw(v1: string, v2: string) {
-  return v1 !== v2 ? new Error('密码不一致') : true
 }
 </script>
 
@@ -44,7 +41,7 @@ function validatorPsw(v1: string, v2: string) {
     class="custom-card"
     preset="card"
     :style="{ width: '50vw' }"
-    title="修改账户密码"
+    title="修改绑定手机"
     size="huge"
     :bordered="false"
     :segmented="{
@@ -62,12 +59,21 @@ function validatorPsw(v1: string, v2: string) {
     <div m="x-20%">
       <n-form ref="form" :model="formData">
         <n-grid>
-          <n-form-item-gi path="psw1" label="新密码" span="24" :rule="[{ trigger: 'blur', required: true, message: '请输入新密码' }, { trigger: 'blur', validator: (r, v) => validatorPsw(v, formData.psw2) }]">
-            <n-input v-model:value="formData.psw1" type="password" placeholder="请输入密码" />
+          <n-form-item-gi path="phone" label="手机号" span="24" :rule="[{ required: true, message: '请输入手机号', trigger: 'blur' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]">
+            <n-input v-model:value="formData.phone" placeholder="请输入手机号" />
           </n-form-item-gi>
-          <n-form-item-gi path="psw2" label="确认新密码" span="24" :rule="[{ trigger: 'blur', required: true, message: '请再次输入新密码' }, { trigger: 'blur', validator: (r:any, v:string) => validatorPsw(v, formData.psw1) }]">
-            <n-input v-model:value="formData.psw2" type="password" placeholder="请再次输入新密码" />
-          </n-form-item-gi>
+          <!-- <n-form-item-gi name="code" label="验证码" span="24">
+            <n-input-group>
+              <n-input v-model:value="formData.code" placeholder="请输入邮箱验证码" :rule="[{ required: true, message: '请输入验证码' }]">
+                <template #prefix>
+                  <div class="i-carbon:locked" opacity-40 />
+                </template>
+              </n-input>
+              <n-button :disabled="showCodeTime" type="primary" text :loading="codeLoading" @click="sendCode">
+                {{ showCodeTime ? `${codeTime}秒` : '发送验证码' }}
+              </n-button>
+            </n-input-group>
+          </n-form-item-gi> -->
           <n-grid-item span="24">
             <n-button block type="primary" :loading="loading" @click="handleSubmit">
               确定

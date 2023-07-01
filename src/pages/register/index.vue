@@ -28,8 +28,6 @@ function register() {
       // status: formData.value.code,
       username: formData.value.name,
     }).then((res) => {
-      console.log(res)
-
       router.push('/login')
     })
   })
@@ -42,8 +40,6 @@ async function sendCode() {
   await emailItem.value?.validate()
 
   getCode(formData.value.email).then((res) => {
-    console.log(res)
-
     showCodeTime.value = true
 
     const timer = setInterval(() => {

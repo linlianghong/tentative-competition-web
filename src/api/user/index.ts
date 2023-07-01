@@ -76,3 +76,34 @@ export function getUserInfo() {
     silent: true,
   })
 }
+
+export function updateUserInfo(params: Partial<UserInfoParams>) {
+  return http.post<BaseResponse>('system/user', params)
+}
+
+export interface UserInfoParams {
+  createBy: string
+  createTime: string
+  updateBy?: any
+  updateTime?: any
+  remark?: any
+  userId: number
+  deptId?: any
+  userName: string
+  nickName: string
+  email: string
+  phonenumber: string
+  sex: string
+  avatar: string
+  password: string
+  status: string
+  delFlag: string
+  loginIp: string
+  loginDate: string
+  dept?: any
+  roles: any[]
+  roleIds: any[]
+  postIds: any[]
+  roleId?: any
+  admin: boolean
+}
