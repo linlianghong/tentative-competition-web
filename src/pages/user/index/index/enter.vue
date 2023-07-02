@@ -156,7 +156,7 @@ function handleSubmit() {
             </n-form-item-gi>
             <n-form-item-gi path="schoolName" :label-style="{ fontWeight: 500 }" span="8" label="学校名称" :rule="[{ trigger: 'blur', required: true, message: '请输入学校名称' }]">
               <FormItemPreview :value="formData.schoolName">
-                <n-input v-model:value="formData.schoolName" :maxlength="100" placeholder="请输入学校名称" />
+                <n-input v-model:value="formData.schoolName" :maxlength="100" placeholder="请输入规范全称" />
               </FormItemPreview>
             </n-form-item-gi>
           </n-grid>
@@ -184,10 +184,10 @@ function handleSubmit() {
               </n-form-item-gi>
               <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入专业' }]" :path="['memberInfoVos', i, 'profession'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="专业">
                 <FormItemPreview :value="item.profession">
-                  <n-input v-model:value="item.profession" :maxlength="100" placeholder="请输入专业" />
+                  <n-input v-model:value="item.profession" :maxlength="100" placeholder="请输入规范全称，如“生物工程“" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', validator: validatorGrade }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="年级">
+              <n-form-item-gi show-require-mark :rule="[{ trigger: 'blur', validator: validatorGrade }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="年级">
                 <FormItemPreview :value="item.grade" :value-mapping="gradeMapping">
                   <n-select v-model:value="item.grade" placeholder="请选择年级" :options="gradeOptions" />
                 </FormItemPreview>
@@ -286,7 +286,7 @@ function handleSubmit() {
               </n-form-item-gi>
               <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入拟参赛作品设想' }]" :path="['imitateWorksList', i, 'imitateImagine'].join('.')" :label-style="{ fontWeight: 500 }" span="24" label="拟参赛作品设想">
                 <FormItemPreview :value="item.imitateImagine">
-                  <n-input v-model:value="item.imitateImagine" :maxlength="500" type="textarea" placeholder="请输入拟参赛作品设想" />
+                  <n-input v-model:value="item.imitateImagine" :maxlength="500" type="textarea" placeholder="请简要介绍拟参赛作品的创意设想、研究设想，500字以内" />
                 </FormItemPreview>
               </n-form-item-gi>
             </template>
