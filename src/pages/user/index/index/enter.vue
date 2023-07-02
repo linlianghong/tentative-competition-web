@@ -137,7 +137,7 @@ function handleSubmit() {
         最新公告
       </div>
       <div text="opacity-70">
-        作品提交时间不得晚于6月30日，请各位参赛者尽快上传作品，文件大小不小于1M
+        参赛报名时间不得晚于9月15日，请各位参赛团队尽快提交报名信息，大赛采取实名制，同一团队仅能注册一个账号，同一指导老师至多指导3个参赛团队。
       </div>
     </div>
     <div v-if="formData" bg="#fff" flex="~ 1 justify-center items-center" p="4" overflow-hidden>
