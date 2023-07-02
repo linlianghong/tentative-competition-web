@@ -38,7 +38,7 @@ function onClick() {
     <div>
       <div text-14px>
         <n-ellipsis :line-clamp="2" :tooltip="{ contentStyle: { maxWidth: '50vw' } }">
-          {{ desc }}
+          <div v-html="desc" />
         </n-ellipsis>
       </div>
     </div>
