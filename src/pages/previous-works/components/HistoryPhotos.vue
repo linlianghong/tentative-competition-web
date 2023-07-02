@@ -67,7 +67,7 @@ function hanldeUpdate(key: string) {
           <n-tabs v-model:value="activeKey" @update-value="hanldeUpdate">
             <n-tab-pane v-for="item of schedules?.data" :key="item.key" :name="item.key" :label="`${item.val}大赛作品`" />
           </n-tabs>
-          <div>
+          <!-- <div>
             <n-input-group class="w-full!">
               <n-input v-model:value="workName" :style="{ width: '100%' }" placeholder="请输入作品名称" />
               <n-button type="primary" ghost @click="search">
@@ -76,7 +76,7 @@ function hanldeUpdate(key: string) {
                 </template>
               </n-button>
             </n-input-group>
-          </div>
+          </div> -->
           <!-- <div>
             <SectionTitle title="特等奖" />
             <div grid="~ cols-3 justify-center gap-4vw">
