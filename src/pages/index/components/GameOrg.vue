@@ -1,46 +1,85 @@
 <script setup lang="ts">
+import logogqt from 'src/assets/home/org-gqt.png'
+import logohbwsw from 'src/assets/home/org-hbwsw.png'
+import logojksw from 'src/assets/home/org-jksw.png'
+import logosky from 'src/assets/home/org-sky.png'
+import logozgwsw from 'src/assets/home/org-zgwsw.png'
+import logokx from 'src/assets/home/org-zgwsw.png'
+import logoHuanong from 'src/assets/home/org-zgwsw.png'
 import OrgCard from './OrgCard.vue'
-import bg from '~/assets/home/home_3_06.png'
 import h5bg from '~/assets/home/h5-home5.jpg'
-import logoHuanong from '~/assets/home/logo-huanong.png'
-import logoKexie from '~/assets/home/logo-kexie.png'
+import bg from '~/assets/home/home_3_06.png'
 
 const a = [{
   logo: logoHuanong,
   unit: '华中农业大学',
   info: '主办方',
+  url: 'http://www.hzau.edu.cn/',
 },
 {
-  logo: logoKexie,
+  logo: logokx,
   unit: '湖北省科学技术协会',
   info: '主办方',
+  url: 'http://www.hbkx.org.cn/',
 },
 {
-  logo: logoKexie,
-  unit: '湖北省科学技术协会',
+  logo: logogqt,
+  unit: '共青团湖北省委员会',
   info: '主办方',
+  url: 'http://www.hbgqt.org.cn/',
 },
 ]
 
 const b = [{
-  logo: logoHuanong,
-  unit: '华中农业大学农业生命科学技术科普基地',
+  logo: logosky,
+  unit: '华中农业大学生命科学技术学院',
   info: '承办方',
+  url: 'http://lst.hzau.edu.cn/',
 }, {
-  logo: logoKexie,
-  unit: '湖北省科学技术协会',
+  logo: logoHuanong,
+  unit: '华中农业大学现代农业生命科学技术科普基地',
   info: '承办方',
-}]
+  url: 'http://lst.hzau.edu.cn/',
+}, {
+  logo: logoHuanong,
+  unit: '华中农业大学科学技术协会',
+  info: '承办方',
+  url: 'http://www.hzau.edu.cn/',
+},
+]
+const c = [{
+  logo: logozgwsw,
+  unit: '中国微生物学会',
+  info: '协办方',
+  url: 'http://www.csm1952.org.cn/',
+}, {
+  logo: logohbwsw,
+  unit: '湖北微生物学会',
+  info: '协办方',
+  url: 'http://www.csm1952.org.cn/',
+}, {
+  logo: logohbwsw,
+  unit: '武汉微生物学会',
+  info: '协办方',
+  url: 'http://whwswxh.shetuan365.cn/',
+},
+]
+const d = [{
+  logo: logojksw,
+  unit: '微康益生菌（苏州）股份有限公司',
+  info: '赞助商',
+  url: 'http://www.wecare-bio.com/',
+},
+]
+
+const logos = [a, b, c, d]
 </script>
 
 <template>
-  <PageItem :bg="bg" :h5bg="h5bg" show-footer title="组织机构">
-    <div mt-4vw h-full overflow-hidden>
-      <div grid="~ cols-3  gap-8 lt-lg:cols-1" lt-lg="transform">
-        <OrgCard v-for="item of a" :key="item.unit" :info="item.info" :logo="item.logo" :unit="item.unit" />
-      </div>
-      <div grid="~ cols-2 gap-8 lt-lg:cols-1" lt-lg="transform">
-        <OrgCard v-for="item of b" :key="item.unit" :info="item.info" :logo="item.logo" :unit="item.unit" />
+  <PageItem :bg="bg" :h5bg="h5bg" show-footer title="组织机构" :content-style="{ flex: 1 }">
+    <div h-full overflow-hidden lt-lg="mt-0 overflow-auto">
+      <div v-for="(arr, i) of logos" :key="i" flex="~ gap-8 justify-center wrap lt-lg:(gap-2)" lt-lg="transform">
+        <OrgCard v-for="item of arr" :key="item.unit" :url="item.url" :info="item.info" :logo="item.logo" :unit="item.unit" class="max-w-1/3 min-w-1/4 flex-1 lt-lg:(max-w-1/2 min-w-2/5)" />
       </div>
     </div>
   </PageItem>

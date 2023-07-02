@@ -8,16 +8,19 @@ import GameProfile from './components/GameProfile.vue'
 import GameWork from './components/GameWork.vue'
 import GameOrg from './components/GameOrg.vue'
 import GameDate from './components/GameDate.vue'
+import { useLayoutStore } from '~/stores/layout'
 
 const modules = [Mousewheel, Pagination]
 
 const swiperInst = ref()
 const activeIndex = ref(0)
+
+const { isMobile } = storeToRefs(useLayoutStore())
 </script>
 
 <template>
   <Swiper
-    :allow-touch-move="false"
+    :allow-touch-move="isMobile"
     :speed="1000"
     direction="vertical"
     :slides-per-view="1"

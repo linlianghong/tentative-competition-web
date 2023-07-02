@@ -41,9 +41,8 @@ function handleSubmit() {
 
   <n-modal
     v-model:show="show"
-    class="custom-card"
+    class="w-50vw! lt-lg:w-90vw!"
     preset="card"
-    :style="{ width: '50vw' }"
     title="修改绑定手机"
     size="huge"
     :bordered="false"
@@ -59,7 +58,7 @@ function handleSubmit() {
       噢!
     </template> -->
 
-    <div m="x-20%">
+    <div m="x-20% lt-lg:x-0">
       <n-form ref="form" :model="formData">
         <n-grid>
           <n-form-item-gi path="phone" label="手机号" span="24" :rule="[{ required: true, message: '请输入手机号', trigger: 'blur' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]">

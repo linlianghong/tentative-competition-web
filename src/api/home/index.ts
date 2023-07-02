@@ -1,7 +1,7 @@
 import type { BaseResponse } from '../http'
 
-export function getHomeHistoryWorks(scheduleId: string) {
-  return http.get<BaseResponse<PreviousWorkItem[]>>(`/client/home-page/previous-works/${scheduleId}`)
+export function getHomeHistoryWorks() {
+  return http.get<BaseResponse<PreviousWorkItem[]>>('/client/home-page/previous-works')
 }
 
 export function getHomeIntro(scheduleId: string) {

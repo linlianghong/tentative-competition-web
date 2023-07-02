@@ -3,6 +3,7 @@ import type { GlobalComponentConfig, GlobalThemeOverrides } from 'naive-ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { dateZhCN, zhCN } from 'naive-ui'
+import { useLayoutStore } from './stores/layout'
 
 try {
   const meta = document.createElement('meta')
@@ -41,6 +42,29 @@ useHead({
     },
   ],
 })
+
+const layoutStore = useLayoutStore()
+
+const { width } = useWindowSize()
+
+watch(width, (w) => {
+  console.log(w)
+
+  layoutStore.updateIsMobile(w < 1024)
+}, { immediate: true })
+
+// function resizeWindow(e: UIEvent) {
+//   console.log(e)
+
+// }
+
+// onMounted(() => {
+//   window.addEventListener('resize', resizeWindow, false)
+// })
+
+// onBeforeUnmount(() => {
+//   window.removeEventListener('resize', resizeWindow)
+// })
 
 const themeOverrides: GlobalThemeOverrides = {
   common: {
@@ -109,6 +133,9 @@ const themeOverrides: GlobalThemeOverrides = {
     borderHover: 'rgba(186, 54, 210, .8)',
     borderFocus: 'rgba(186, 54, 210, .8)',
     borderPressed: 'rgba(186, 54, 210, .8)',
+  },
+  Menu: {
+    itemTextColorHoverHorizontal: 'rgba(186, 54, 210, .8)',
   },
 }
 

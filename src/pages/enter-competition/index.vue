@@ -7,15 +7,17 @@ import Participants from './components/Participants.vue'
 import EntryRequirements from './components/EntryRequirements.vue'
 import PrizeSettings from './components/PrizeSettings.vue'
 import Standard from './components/Standard.vue'
+import { useLayoutStore } from '~/stores/layout'
 
 const modules = [Mousewheel, Pagination]
 const swiperInst = ref()
 const activeIndex = ref(0)
+const { isMobile } = storeToRefs(useLayoutStore())
 </script>
 
 <template>
   <Swiper
-    :allow-touch-move="false"
+    :allow-touch-move="isMobile"
     no-swiping
     :speed="1000"
     direction="vertical"

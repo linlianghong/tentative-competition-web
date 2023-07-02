@@ -143,62 +143,62 @@ function handleSubmit() {
     <div v-if="formData" bg="#fff" flex="~ 1 justify-center items-center" p="4" overflow-hidden>
       <n-scrollbar>
         <n-form ref="form" class="w-full!" :model="formData">
-          <n-grid x-gap="16" y-gap="16">
-            <n-grid-item span="24">
+          <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
+            <n-grid-item span="3">
               <div text="primary 4 " font="500">
                 队伍信息
               </div>
             </n-grid-item>
-            <n-form-item-gi :label-style="{ fontWeight: 500 }" span="8" label="队伍信息">
+            <n-form-item-gi :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="队伍信息">
               <FormItemPreview :value="userInfo?.userName">
                 <n-input :maxlength="100" readonly :value="userInfo?.userName" placeholder="" />
               </FormItemPreview>
             </n-form-item-gi>
-            <n-form-item-gi path="schoolName" :label-style="{ fontWeight: 500 }" span="8" label="学校名称" :rule="[{ trigger: 'blur', required: true, message: '请输入学校名称' }]">
+            <n-form-item-gi path="schoolName" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="学校名称" :rule="[{ trigger: 'blur', required: true, message: '请输入学校名称' }]">
               <FormItemPreview :value="formData.schoolName">
                 <n-input v-model:value="formData.schoolName" :maxlength="100" placeholder="请输入规范全称" />
               </FormItemPreview>
             </n-form-item-gi>
           </n-grid>
-          <n-grid x-gap="16" y-gap="16">
-            <n-grid-item span="24">
+          <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
+            <n-grid-item span="3">
               <div text="primary 4 " font="500">
                 队员信息
               </div>
             </n-grid-item>
             <template v-for="(item, i) of formData.memberInfoVos" :key="i">
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入姓名' }]" :path="['memberInfoVos', i, 'memberName'].join('.')" :label-style="{ fontWeight: 500 }" span="8" :label="item.memberType === 'TEAM_LEADER' ? '队长姓名' : `团队成员${i}`">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入姓名' }]" :path="['memberInfoVos', i, 'memberName'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" :label="item.memberType === 'TEAM_LEADER' ? '队长姓名' : `团队成员${i}`">
                 <FormItemPreview :value="item.memberName">
                   <n-input v-model:value="item.memberName" :maxlength="100" placeholder="请输入姓名" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择性别' }]" :path="['memberInfoVos', i, 'sex'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="性别">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择性别' }]" :path="['memberInfoVos', i, 'sex'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="性别">
                 <FormItemPreview :value="item.sex" :value-mapping="{ MAN: '男', WOMAN: '女' }">
                   <n-select v-model:value="item.sex" placeholder="请选择性别" :options="sexOptions" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择在读学历' }]" :path="['memberInfoVos', i, 'education'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="在读学历">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择在读学历' }]" :path="['memberInfoVos', i, 'education'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="在读学历">
                 <FormItemPreview :value="item.education" :value-mapping="eduMapping">
                   <n-select v-model:value="item.education" placeholder="请选择在读学历" :options="eduOptions" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入专业' }]" :path="['memberInfoVos', i, 'profession'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="专业">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入专业' }]" :path="['memberInfoVos', i, 'profession'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="专业">
                 <FormItemPreview :value="item.profession">
                   <n-input v-model:value="item.profession" :maxlength="100" placeholder="请输入规范全称，如“生物工程“" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi show-require-mark :rule="[{ trigger: 'blur', validator: validatorGrade }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="年级">
+              <n-form-item-gi show-require-mark :rule="[{ trigger: 'blur', validator: validatorGrade }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="年级">
                 <FormItemPreview :value="item.grade" :value-mapping="gradeMapping">
                   <n-select v-model:value="item.grade" placeholder="请选择年级" :options="gradeOptions" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入联系方式' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]" :path="['memberInfoVos', i, 'phone'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="联系方式">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入联系方式' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]" :path="['memberInfoVos', i, 'phone'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="联系方式">
                 <FormItemPreview :value="item.phone">
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入联系方式" />
                 </FormItemPreview>
               </n-form-item-gi>
             </template>
-            <n-grid-item v-if="isEdit" span="24">
+            <n-grid-item v-if="isEdit" span="3">
               <div text="center">
                 <n-space justify="center">
                   <div v-if="formData.memberInfoVos.length < 3" text="center">
@@ -216,36 +216,36 @@ function handleSubmit() {
             </n-grid-item>
           </n-grid>
 
-          <n-grid>
-            <n-form-item-gi span="24">
+          <n-grid cols="3">
+            <n-form-item-gi span="3">
               <div text="primary 4 " font="500">
                 指导老师信息
               </div>
             </n-form-item-gi>
           </n-grid>
           <template v-for="(item, i) of formData.tempMemberInfoVos" :key="i">
-            <n-grid x-gap="16" y-gap="16">
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入姓名' }]" :path="['tempMemberInfoVos', i, 'memberName'].join('.')" :label-style="{ fontWeight: 500 }" span="8" :label="item.memberType === 'TEACHER' ? '科学指导老师' : `艺术指导老师`">
+            <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入姓名' }]" :path="['tempMemberInfoVos', i, 'memberName'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" :label="item.memberType === 'TEACHER' ? '科学指导老师' : `艺术指导老师`">
                 <FormItemPreview :value="item.memberName">
                   <n-input v-model:value="item.memberName" :maxlength="100" placeholder="请输入姓名" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择性别' }]" :path="['tempMemberInfoVos', i, 'sex'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="性别">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择性别' }]" :path="['tempMemberInfoVos', i, 'sex'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="性别">
                 <FormItemPreview :value="item.sex" :value-mapping="{ MAN: '男', WOMAN: '女' }">
                   <n-select v-model:value="item.sex" placeholder="请选择性别" :options="sexOptions" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入单位' }]" :path="['tempMemberInfoVos', i, 'unit'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="单位">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入单位' }]" :path="['tempMemberInfoVos', i, 'unit'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="单位">
                 <FormItemPreview :value="item.unit">
                   <n-input v-model:value="item.unit" :maxlength="100" placeholder="请输入单位" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入职务/职称' }]" :path="['tempMemberInfoVos', i, 'job'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="职务/职称">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入职务/职称' }]" :path="['tempMemberInfoVos', i, 'job'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="职务/职称">
                 <FormItemPreview :value="item.job">
                   <n-input v-model:value="item.job" :maxlength="100" placeholder="请输入职务/职称" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入手机号码' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]" :path="['tempMemberInfoVos', i, 'phone'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="联系方式">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入手机号码' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]" :path="['tempMemberInfoVos', i, 'phone'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="联系方式">
                 <FormItemPreview :value="item.phone">
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入手机号码" />
                 </FormItemPreview>
@@ -253,8 +253,8 @@ function handleSubmit() {
             </n-grid>
           </template>
 
-          <n-grid v-if="isEdit">
-            <n-grid-item span="24">
+          <n-grid v-if="isEdit" item-responsive responsive="screen" cols="3">
+            <n-grid-item span="3">
               <div text="center">
                 <n-button type="primary" :ghost="!(formData.tempMemberInfoVos?.length < 2)" @click="addArtTeacher">
                   {{ formData.tempMemberInfoVos?.length < 2 ? '添加' : '删除' }}艺术指导老师
@@ -262,35 +262,35 @@ function handleSubmit() {
               </div>
             </n-grid-item>
           </n-grid>
-          <n-grid x-gap="16" y-gap="16">
-            <n-grid-item span="24">
+          <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
+            <n-grid-item span="3">
               <div text="primary 4 " font="500">
                 拟参赛信息
               </div>
             </n-grid-item>
-            <n-grid-item span="24">
+            <n-grid-item span="3">
               <div text=" 14px " font="400">
                 最终以提交作品时的信息为准
               </div>
             </n-grid-item>
             <template v-for="(item, i) of formData.imitateWorksList" :key="i">
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入拟参赛作品名称' }]" :path="['imitateWorksList', i, 'imitateWorksName'].join('.')" :label-style="{ fontWeight: 500 }" span="24" label="拟参赛作品名称">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入拟参赛作品名称' }]" :path="['imitateWorksList', i, 'imitateWorksName'].join('.')" :label-style="{ fontWeight: 500 }" span="3" label="拟参赛作品名称">
                 <FormItemPreview :value="item.imitateWorksName">
                   <n-input v-model:value="item.imitateWorksName" :maxlength="100" placeholder="请输入拟参赛作品名称" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi show-require-mark :rule="[{ trigger: 'blur', validator: validIsGroupImg, message: '请选择是否为系列组图' }]" :path="['imitateWorksList', i, 'isGroupImg'].join('.')" :label-style="{ fontWeight: 500 }" span="24" label="是否为系列组图">
+              <n-form-item-gi show-require-mark :rule="[{ trigger: 'blur', validator: validIsGroupImg, message: '请选择是否为系列组图' }]" :path="['imitateWorksList', i, 'isGroupImg'].join('.')" :label-style="{ fontWeight: 500 }" span="3" label="是否为系列组图">
                 <FormItemPreview :value="item.isGroupImg" :value-mapping="{ 0: '否', 1: '是' }">
                   <n-select v-model:value="item.isGroupImg" placeholder="请选择是否为系列组图" :options="[{ label: '是', value: 1 }, { label: '否', value: 0 }]" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入拟参赛作品设想' }]" :path="['imitateWorksList', i, 'imitateImagine'].join('.')" :label-style="{ fontWeight: 500 }" span="24" label="拟参赛作品设想">
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入拟参赛作品设想' }]" :path="['imitateWorksList', i, 'imitateImagine'].join('.')" :label-style="{ fontWeight: 500 }" span="3" label="拟参赛作品设想">
                 <FormItemPreview :value="item.imitateImagine">
                   <n-input v-model:value="item.imitateImagine" :maxlength="500" type="textarea" placeholder="请简要介绍拟参赛作品的创意设想、研究设想，500字以内" />
                 </FormItemPreview>
               </n-form-item-gi>
             </template>
-            <n-grid-item v-if="isEdit" span="24">
+            <n-grid-item v-if="isEdit" span="3">
               <div text="center" m="b-4">
                 <n-space justify="center">
                   <div v-if="formData.imitateWorksList.length < 3" text="center">
@@ -306,7 +306,7 @@ function handleSubmit() {
                 </n-space>
               </div>
             </n-grid-item>
-            <n-grid-item span="8" offset="8">
+            <n-grid-item span="xs:3 m:1" offset="sm:0 m:1">
               <div v-if="isEdit">
                 <n-space justify="center">
                   <n-button :loading="loading" type="primary" block @click="handleSubmit">

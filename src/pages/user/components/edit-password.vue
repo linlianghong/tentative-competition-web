@@ -41,9 +41,8 @@ function validatorPsw(v1: string, v2: string) {
 
   <n-modal
     v-model:show="show"
-    class="custom-card"
+    class="w-50vw! lt-lg:w-90vw!"
     preset="card"
-    :style="{ width: '50vw' }"
     title="修改账户密码"
     size="huge"
     :bordered="false"
@@ -59,7 +58,7 @@ function validatorPsw(v1: string, v2: string) {
       噢!
     </template> -->
 
-    <div m="x-20%">
+    <div m="x-20% lt-lg:x-0">
       <n-form ref="form" :model="formData">
         <n-grid>
           <n-form-item-gi path="psw1" label="新密码" span="24" :rule="[{ trigger: 'blur', required: true, message: '请输入新密码' }, { trigger: 'blur', validator: (r, v) => validatorPsw(v, formData.psw2) }]">

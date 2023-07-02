@@ -58,9 +58,12 @@ router.beforeEach((to, from, next) => {
 </script>
 
 <template>
-  <div flex="~ row gap-4" p="x-10vw" bg="#F8F8F8" h="full">
-    <div p="4" bg="#fff">
+  <div flex="~ row gap-4" p="x-10vw" bg="#F8F8F8" h="full" lt-lg="flex-col px-0">
+    <div p="4" bg="#fff" lt-lg="hidden">
       <n-menu v-model:value="activeKey" mode="vertical" :options="menuOptions" />
+    </div>
+    <div p="4" bg="#fff" lg="hidden">
+      <n-menu v-model:value="activeKey" mode="horizontal" :options="menuOptions" />
     </div>
     <div h="full" flex="1">
       <router-view />

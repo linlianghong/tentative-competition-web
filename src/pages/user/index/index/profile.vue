@@ -26,7 +26,7 @@ function handleLogout() {
       </div>
     </div>
     <div bg="#fff" flex="~ 1 justify-center items-center" p="4">
-      <div w="2/5">
+      <div w="2/5" lt-lg="w-auto">
         <div flex="~ gap-4 items-start" m="b-4">
           <span w-5em text="right 4">队伍账号： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">

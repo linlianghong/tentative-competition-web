@@ -2,15 +2,17 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import Banner from './components/Banner.vue'
 import News from './components/News.vue'
+import { useLayoutStore } from '~/stores/layout'
 
 const modules = [Mousewheel, Pagination]
 const swiperInst = ref()
 const activeIndex = ref(0)
+const { isMobile } = storeToRefs(useLayoutStore())
 </script>
 
 <template>
   <Swiper
-    :allow-touch-move="false"
+    :allow-touch-move="isMobile"
     no-swiping
     :speed="1000"
     direction="vertical"

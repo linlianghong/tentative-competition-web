@@ -63,8 +63,8 @@ function handleBack() {
 </script>
 
 <template>
-  <div w-60vw m="" p="" bg="#fff" rounded="xl" flex="~" overflow="hidden">
-    <div flex="~ items-center 1" bg="#F8F8F8">
+  <div w-60vw lt-lg="w-90vw" m="" p="" bg="#fff" rounded="xl" flex="~" overflow="hidden">
+    <div flex="~ items-center 1" bg="#F8F8F8" lt-lg="hidden">
       <img object-contain :src="img">
     </div>
     <div flex="1" p="6">

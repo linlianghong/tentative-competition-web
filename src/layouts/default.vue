@@ -16,11 +16,11 @@
         <n-layout-content class="flex-1!" :content-style="{ height: '100%' }">
           <RouterView />
         </n-layout-content>
-        <n-layout-footer>
-          <TheFooter />
-        </n-layout-footer>
       </n-layout>
     </n-layout-content>
+    <n-layout-footer>
+      <TheFooter />
+    </n-layout-footer>
   </n-layout>
 </template>
 
