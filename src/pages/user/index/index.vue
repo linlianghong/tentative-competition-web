@@ -11,7 +11,8 @@ const dialog = useDialog()
 store.updateApplyInfo().then((data) => {
   if (!data?.memberInfoVos?.length) {
     dialog.warning({
-      title: '请尽快提交报名信息',
+      title: '',
+      content: '请尽快提交报名信息!',
     })
   }
 })
