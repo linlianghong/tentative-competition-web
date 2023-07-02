@@ -43,6 +43,18 @@ const menuOptions: MenuOption[] = menus.map(d => (
     key: d.key,
   }
 ))
+
+const router = useRouter()
+
+router.beforeEach((to, from, next) => {
+  if (to.path.includes('user/info')) {
+    message.warning('未到提交时间')
+    next(false)
+  }
+  else {
+    next()
+  }
+})
 </script>
 
 <template>
