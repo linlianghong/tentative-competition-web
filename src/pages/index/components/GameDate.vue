@@ -5,8 +5,10 @@ import h5bg from '~/assets/home/h5-home3.webp'
 
 const router = useRouter()
 
+const { isLogin } = storeToRefs(useTeamInfoStore())
+
 function handleClick() {
-  router.push('/enter-competition')
+  router.push(isLogin.value ? '/user/profile' : '/register')
 }
 </script>
 
