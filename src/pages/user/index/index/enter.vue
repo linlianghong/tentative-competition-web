@@ -118,6 +118,12 @@ function validatorGrade(r, v: string) {
   return true
 }
 
+function validatorId(r: any, v = '') {
+  if (v?.length !== 18)
+    return new Error('请输入正确的身份证号')
+  return true
+}
+
 function handleSubmit() {
   form.value?.validate().then((res) => {
     if (formData.value) {
@@ -153,7 +159,7 @@ function handleSubmit() {
                 队伍信息
               </div>
             </n-grid-item>
-            <n-form-item-gi :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="队伍信息">
+            <n-form-item-gi :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="团队名称">
               <FormItemPreview :value="userInfo?.userName">
                 <n-input :maxlength="100" readonly :value="userInfo?.userName" placeholder="" />
               </FormItemPreview>
@@ -201,7 +207,7 @@ function handleSubmit() {
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入联系方式" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入身份证号' }, { trigger: 'blur', required: true, message: '请输入正确的身份证号' }]" :path="['tempMemberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
+              <n-form-item-gi :rule="[{ trigger: 'blur', validator: validatorId }]" :path="['memberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
                 <FormItemPreview :value="item.idCard">
                   <n-input v-model:value="item.idCard" :maxlength="18" placeholder="请输入身份证号" />
                 </FormItemPreview>
@@ -259,7 +265,7 @@ function handleSubmit() {
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入手机号码" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入身份证号' }, { trigger: 'blur', required: true, message: '请输入正确的身份证号' }]" :path="['tempMemberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
+              <n-form-item-gi :rule="[{ trigger: 'blur', validator: validatorId }]" :path="['tempMemberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
                 <FormItemPreview :value="item.idCard">
                   <n-input v-model:value="item.idCard" :maxlength="18" placeholder="请输入身份证号" />
                 </FormItemPreview>
