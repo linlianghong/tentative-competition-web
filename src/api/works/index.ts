@@ -20,6 +20,7 @@ export interface PreviousWork {
   userId: number
   worksOriginality: string
   description: string
+  content: string
 }
 export function getPreviousWorks(params: { scheduleId: string; worksName?: string }) {
   return http.get<BaseResponse<PreviousWork[]>>('/client/previous/schedule-works', { params })
