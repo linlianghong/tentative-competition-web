@@ -29,6 +29,10 @@ function login() {
 function register() {
   router.push('/register')
 }
+
+function handleBack() {
+  router.back()
+}
 </script>
 
 <template>
@@ -37,6 +41,9 @@ function register() {
       <img object-contain :src="img">
     </div>
     <div flex="~ 1 col justify-center" p="6">
+      <div m="b-4">
+        <div class="i-carbon:arrow-left cursor-pointer text-4 font-700 text-primary" @click="handleBack" />
+      </div>
       <header>
         <span title-board>登录</span>
       </header>

@@ -56,6 +56,10 @@ async function sendCode() {
 function validatorPsw(v1: string, v2: string) {
   return v1 !== v2 ? new Error('密码不一致') : true
 }
+
+function handleBack() {
+  router.back()
+}
 </script>
 
 <template>
@@ -64,6 +68,9 @@ function validatorPsw(v1: string, v2: string) {
       <img object-contain :src="img">
     </div>
     <div flex="1" p="6">
+      <div m="b-4">
+        <div class="i-carbon:arrow-left cursor-pointer text-4 font-700 text-primary" @click="handleBack" />
+      </div>
       <header>
         <span title-board>注册</span>
       </header>
