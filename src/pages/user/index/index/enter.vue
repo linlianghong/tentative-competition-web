@@ -110,6 +110,12 @@ function validIsGroupImg(r, v: string) {
   return true
 }
 
+function validatorGrade(r, v: string) {
+  if (v === undefined || v === null)
+    return new Error('请选择年级')
+  return true
+}
+
 function handleSubmit() {
   form.value?.validate().then((res) => {
     if (formData.value) {
@@ -181,7 +187,7 @@ function handleSubmit() {
                   <n-input v-model:value="item.profession" :maxlength="100" placeholder="请输入专业" />
                 </FormItemPreview>
               </n-form-item-gi>
-              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请选择年级' }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="年级">
+              <n-form-item-gi :rule="[{ trigger: 'blur', validator: validatorGrade }]" :path="['memberInfoVos', i, 'grade'].join('.')" :label-style="{ fontWeight: 500 }" span="8" label="年级">
                 <FormItemPreview :value="item.grade" :value-mapping="gradeMapping">
                   <n-select v-model:value="item.grade" placeholder="请选择年级" :options="gradeOptions" />
                 </FormItemPreview>
