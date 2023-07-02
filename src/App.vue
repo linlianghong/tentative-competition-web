@@ -37,7 +37,7 @@ useHead({
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: () => '/favicon.jpg',
+      href: () => '/favicon.png',
     },
   ],
 })

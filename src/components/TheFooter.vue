@@ -37,7 +37,7 @@ import qrcode from '~/assets/common/qrcode.png'
     <div flex="~ 1 justify-center col items-center">
       <n-image p="1" width="118" w-118px object="contain" :src="qrcode" />
       <div m="t-4 ">
-        加入QQ群
+        扫码加入赛事官方QQ群
       </div>
     </div>
   </nav>

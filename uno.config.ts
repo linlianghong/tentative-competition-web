@@ -14,7 +14,7 @@ export default defineConfig({
     ['icon-btn', 'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600'],
     // ['title-board', ' after:(bg-gradient-to-tr from-[#D44CE4] to-[#AA55D6])'],
     ['title-board', 'inline-block w-auto text-6 border-b-3 border-solid border-#D44CE4'],
-    ['article', 'leading-42px font-normal! text-18px indent-2em'],
+    ['article', 'leading-42px font-normal! text-20px indent-2em'],
   ],
   theme: {
     colors: {

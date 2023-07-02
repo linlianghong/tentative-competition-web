@@ -17,6 +17,7 @@ const activeIndex = ref(0)
 
 <template>
   <Swiper
+    :allow-touch-move="false"
     :speed="1000"
     direction="vertical"
     :slides-per-view="1"

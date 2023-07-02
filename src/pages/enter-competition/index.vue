@@ -15,6 +15,7 @@ const activeIndex = ref(0)
 
 <template>
   <Swiper
+    :allow-touch-move="false"
     no-swiping
     :speed="1000"
     direction="vertical"
