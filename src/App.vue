@@ -2,6 +2,7 @@
 import type { GlobalComponentConfig, GlobalThemeOverrides } from 'naive-ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import { dateZhCN, zhCN } from 'naive-ui'
 
 try {
   const meta = document.createElement('meta')
@@ -101,6 +102,14 @@ const themeOverrides: GlobalThemeOverrides = {
     borderHover: 'rgba(186, 54, 210, .8)',
     borderFocus: 'rgba(186, 54, 210, .8)',
   },
+  Select: {
+
+  },
+  InternalSelection: {
+    borderHover: 'rgba(186, 54, 210, .8)',
+    borderFocus: 'rgba(186, 54, 210, .8)',
+    borderPressed: 'rgba(186, 54, 210, .8)',
+  },
 }
 
 const componentOptions: GlobalComponentConfig = {
@@ -109,7 +118,7 @@ const componentOptions: GlobalComponentConfig = {
 </script>
 
 <template>
-  <n-config-provider v-if="loaded" :theme-overrides="themeOverrides" :component-options="componentOptions">
+  <n-config-provider v-if="loaded" :theme-overrides="themeOverrides" :component-options="componentOptions" :locale="zhCN" :date-locale="dateZhCN">
     <n-dialog-provider>
       <n-message-provider>
         <RouterView />
