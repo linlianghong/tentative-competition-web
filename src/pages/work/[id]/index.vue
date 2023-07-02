@@ -44,12 +44,14 @@ const imgs = computed(() => {
     </div>
     <Swiper
       :style="{
-        '--swiper-navigation-color': '#fff',
-        '--swiper-pagination-color': '#fff',
+        '--swiper-navigation-color': '#ccc',
+        '--swiper-pagination-color': '#ccc',
       }"
       :space-between="10"
       :navigation="true"
-      :thumbs="{ swiper: thumbsSwiper }"
+      :thumbs="{
+        //  swiper: thumbsSwiper
+      }"
       :modules="modules"
       class="mySwiper2"
     >
@@ -60,7 +62,8 @@ const imgs = computed(() => {
         >
       </SwiperSlide>
     </Swiper>
-    <Swiper
+    <!-- <Swiper
+      :style="{ height: '50px' }"
       :space-between="10"
       :slides-per-view="4"
       :free-mode="true"
@@ -71,11 +74,11 @@ const imgs = computed(() => {
     >
       <SwiperSlide v-for="item of imgs" :key="item?.id">
         <img
-          w-full object-contain
+          h-full object-contain
           :src="getAssetUrl(item?.fileUrl ?? '')"
         >
       </SwiperSlide>
-    </Swiper>
+    </Swiper> -->
 
     <!-- <div flex="~ gap-4" m="b-47px">
       <n-avatar :src="avatarimg" size="medium" round />
@@ -124,13 +127,13 @@ const imgs = computed(() => {
 
 <style scoped>
 .mySwiper2 {
-  @apply h-700px;
+  height: 700px;
   .swiper-slide {
     @apply text-center bg-white;
   }
 }
 .mySwiper {
-  @apply h-150px;
+  height: 90px;
 }
 </style>
 

@@ -3,11 +3,13 @@
     <TheHeader />
     <n-layout-content
       :content-style="{
-
+        minHeight: 'calc(100vh - var(--app-header-height))',
       }"
     >
       <n-layout
         class="app-layout-content flex-1!" :content-style="{
+          minHeight: 'calc(100vh - var(--app-header-height))',
+
         }"
       >
         <n-layout-content>
