@@ -192,7 +192,7 @@ function handleSubmit() {
                 </FormItemPreview>
               </n-form-item-gi>
             </template>
-            <n-grid-item span="24">
+            <n-grid-item v-if="isEdit" span="24">
               <div text="center">
                 <n-space justify="center">
                   <div v-if="formData.memberInfoVos.length < 3" text="center">
@@ -247,7 +247,7 @@ function handleSubmit() {
             </n-grid>
           </template>
 
-          <n-grid>
+          <n-grid v-if="isEdit">
             <n-grid-item span="24">
               <div text="center">
                 <n-button type="primary" :ghost="!(formData.tempMemberInfoVos?.length < 2)" @click="addArtTeacher">
@@ -284,7 +284,7 @@ function handleSubmit() {
                 </FormItemPreview>
               </n-form-item-gi>
             </template>
-            <n-grid-item span="24">
+            <n-grid-item v-if="isEdit" span="24">
               <div text="center" m="b-4">
                 <n-space justify="center">
                   <div v-if="formData.imitateWorksList.length < 3" text="center">
