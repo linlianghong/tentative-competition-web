@@ -11,7 +11,7 @@ import h5bg from '~/assets/enter-competition/hc2.webp'
         <img :src="img1" class="w-full object-contain">
       </div>
       <div
-        :style="{ textIndent: 0 }" class="article" font="bold" text="4" border="2px gray-2 solid" p="4" rounded-4 bg="white opacity-70"
+        :style="{ textIndent: 0 }" class="article" font="bold" text="4" border="2px gray-2 solid" p="4" rounded-4 bg="white opacity-70" lg="w-58%"
       >
         <ul list="disc " m="l-4" text="5">
           <li>湖北省内普通高等学校、科研院所相关专业学生均可参加。</li>

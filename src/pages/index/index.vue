@@ -20,6 +20,7 @@ const { isMobile } = storeToRefs(useLayoutStore())
 
 <template>
   <Swiper
+    no-swiping
     :allow-touch-move="isMobile"
     :speed="1000"
     direction="vertical"
@@ -31,6 +32,7 @@ const { isMobile } = storeToRefs(useLayoutStore())
     }"
     :modules="modules"
     class="mySwiper"
+    no-swiping-class="no-swiping"
     @active-index-change="activeIndex = $event.activeIndex"
     @init="swiperInst = $event"
   >

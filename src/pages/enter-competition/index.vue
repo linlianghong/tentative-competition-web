@@ -37,7 +37,7 @@ const { isMobile } = storeToRefs(useLayoutStore())
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
       <PageItem :bg="bg" :h5bg="bgh5" title="大赛主题" :content-style="{ }">
-        <div m="t-5vw">
+        <div m="t-5vw x-1/10">
           <img :src="bgtext" w-full object="contain">
         </div>
       </PageItem>
