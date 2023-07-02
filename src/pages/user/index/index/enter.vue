@@ -171,11 +171,11 @@ function handleSubmit() {
             </n-form-item-gi>
           </n-grid>
           <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
-            <n-grid-item span="3">
+            <n-form-item-gi span="3">
               <div text="primary 4 " font="500">
                 队员信息
               </div>
-            </n-grid-item>
+            </n-form-item-gi>
           </n-grid>
 
           <template v-for="(item, i) of formData.memberInfoVos" :key="i">
