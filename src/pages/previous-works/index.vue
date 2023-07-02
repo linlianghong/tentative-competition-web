@@ -44,5 +44,5 @@ const { isMobile } = storeToRefs(useLayoutStore())
 
 <route lang="yaml">
 meta:
-  layout: header-no-footer
+  layout: no-footer
 </route>
