@@ -111,14 +111,14 @@ function handleBack() {
               </n-input-group>
             </n-form-item-gi>
             <n-form-item-gi span="24" label="密码" :label-style="{ fontSize: '16px' }" :rule="[{ trigger: 'blur', required: true, message: '请输入密码' }, { validator: (r, v) => validatorPsw(v, formData.psw2) }]" path="psw1" :show-require-mark="false">
-              <n-input v-model:value="formData.psw1" placeholder="请输入密码" type="password">
+              <n-input v-model:value="formData.psw1" placeholder="请输入密码" type="password" show-password-on="click">
                 <template #prefix>
                   <div class="i-carbon:locked" opacity-40 />
                 </template>
               </n-input>
             </n-form-item-gi>
             <n-form-item-gi span="24" label="请再次输入密码" :label-style="{ fontSize: '16px' }" :rule="[{ trigger: 'blur', required: true, message: '请输入密码' }, { validator: (r, v) => validatorPsw(v, formData.psw1) }]" path="psw2" :show-require-mark="false">
-              <n-input v-model:value="formData.psw2" placeholder="请输入密码" type="password">
+              <n-input v-model:value="formData.psw2" placeholder="请输入密码" type="password" show-password-on="click">
                 <template #prefix>
                   <div class="i-carbon:locked" opacity-40 />
                 </template>

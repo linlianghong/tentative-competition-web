@@ -62,10 +62,10 @@ function validatorPsw(v1: string, v2: string) {
       <n-form ref="form" :model="formData">
         <n-grid>
           <n-form-item-gi path="psw1" label="新密码" span="24" :rule="[{ trigger: 'blur', required: true, message: '请输入新密码' }, { trigger: 'blur', validator: (r, v) => validatorPsw(v, formData.psw2) }]">
-            <n-input v-model:value="formData.psw1" type="password" placeholder="请输入密码" />
+            <n-input v-model:value="formData.psw1" type="password" placeholder="请输入密码" show-password-on="click" />
           </n-form-item-gi>
           <n-form-item-gi path="psw2" label="确认新密码" span="24" :rule="[{ trigger: 'blur', required: true, message: '请再次输入新密码' }, { trigger: 'blur', validator: (r:any, v:string) => validatorPsw(v, formData.psw1) }]">
-            <n-input v-model:value="formData.psw2" type="password" placeholder="请再次输入新密码" />
+            <n-input v-model:value="formData.psw2" type="password" placeholder="请再次输入新密码" show-password-on="click" />
           </n-form-item-gi>
           <n-grid-item span="24">
             <n-button block type="primary" :loading="loading" @click="handleSubmit">

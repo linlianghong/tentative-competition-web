@@ -58,17 +58,17 @@ function handleBack() {
               </n-input>
             </n-form-item-gi>
             <n-form-item-gi span="24" label="密码" :label-style="{ fontSize: '16px' }" :rule="[{ required: true, message: '请输入密码' }]" path="psw" :show-require-mark="false">
-              <n-input v-model:value="formData.psw" placeholder="请输入密码" type="password">
+              <n-input v-model:value="formData.psw" placeholder="请输入密码" type="password" show-password-on="click">
                 <template #prefix>
                   <div class="i-carbon:locked" opacity-40 />
                 </template>
               </n-input>
             </n-form-item-gi>
-            <n-grid-item span="24" text-right>
+            <!-- <n-grid-item span="24" text-right>
               <n-button text>
                 忘记密码
               </n-button>
-            </n-grid-item>
+            </n-grid-item> -->
             <n-form-item-gi span="24" :show-feedback="false">
               <n-button type="primary" :block="true" :loading="loading" @click="login">
                 登录
