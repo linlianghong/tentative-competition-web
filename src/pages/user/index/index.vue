@@ -8,11 +8,17 @@ store.updateTeamInfo()
 
 const dialog = useDialog()
 
+const router = useRouter()
+
 store.updateApplyInfo().then((data) => {
   if (!data?.memberInfoVos?.length) {
     dialog.warning({
       title: '',
       content: '请尽快提交报名信息!',
+      positiveText: '前往提交',
+      onPositiveClick() {
+        router.push('/user/enter?edit=true')
+      },
     })
   }
 })
@@ -43,8 +49,6 @@ const menuOptions: MenuOption[] = menus.map(d => (
     key: d.key,
   }
 ))
-
-const router = useRouter()
 
 router.beforeEach((to, from, next) => {
   if (to.path.includes('user/info')) {

@@ -106,6 +106,7 @@ export interface MemberInfoVo {
   sex: string
   unit: string
   userId: number
+  idCard: string
 }
 
 export interface ImitateWorksItem {

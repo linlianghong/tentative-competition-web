@@ -15,7 +15,9 @@ const formData = ref<SubmitApplyParams>()
 
 const form = ref<FormInst | null>()
 
-const isEdit = ref(false)
+const route = useRoute()
+
+const isEdit = ref(!!route.query.edit)
 
 useRequest(getSubmitApply, {
   onSuccess(data) {
@@ -126,6 +128,8 @@ function handleSubmit() {
       }
       run(params)
     }
+  }, () => {
+    message.error('提交信息不完整，请检查')
   })
 }
 </script>
@@ -197,6 +201,11 @@ function handleSubmit() {
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入联系方式" />
                 </FormItemPreview>
               </n-form-item-gi>
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入身份证号' }, { trigger: 'blur', required: true, message: '请输入正确的身份证号' }]" :path="['tempMemberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
+                <FormItemPreview :value="item.idCard">
+                  <n-input v-model:value="item.idCard" :maxlength="18" placeholder="请输入身份证号" />
+                </FormItemPreview>
+              </n-form-item-gi>
             </template>
             <n-grid-item v-if="isEdit" span="3">
               <div text="center">
@@ -248,6 +257,11 @@ function handleSubmit() {
               <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入手机号码' }, { trigger: 'blur', pattern: reg, message: '请输入正确的手机号' }]" :path="['tempMemberInfoVos', i, 'phone'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="联系方式">
                 <FormItemPreview :value="item.phone">
                   <n-input v-model:value="item.phone" :maxlength="100" placeholder="请输入手机号码" />
+                </FormItemPreview>
+              </n-form-item-gi>
+              <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入身份证号' }, { trigger: 'blur', required: true, message: '请输入正确的身份证号' }]" :path="['tempMemberInfoVos', i, 'idCard'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" label="身份证号码">
+                <FormItemPreview :value="item.idCard">
+                  <n-input v-model:value="item.idCard" :maxlength="18" placeholder="请输入身份证号" />
                 </FormItemPreview>
               </n-form-item-gi>
             </n-grid>
