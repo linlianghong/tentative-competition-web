@@ -306,7 +306,7 @@ function handleSubmit() {
                   <n-button :loading="loading" type="primary" block @click="handleSubmit">
                     提交
                   </n-button>
-                  <n-button :loading="loading" ghost type="primary" block @click="isEdit = false">
+                  <n-button ghost type="primary" block @click="isEdit = false">
                     取消
                   </n-button>
                 </n-space>
