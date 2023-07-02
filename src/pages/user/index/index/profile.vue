@@ -52,8 +52,8 @@ function handleLogout() {
         <div flex="~ gap-4 items-start" m="b-4" overflow-hidden>
           <span w-5em text="right 4">密码： </span>
           <span text="center 4 opacity-79" p="b-2" flex="~ 1" border="b-1 solid #e8e8e8">
-            <!-- <span flex="1" text="center" >{{ !showPsw ? '*************' :  }} -->
-            <n-input :value="userInfo?.password" type="password" show-password-on="click" readonly placeholder="" :theme-overrides="{ border: 'transparent', borderHover: 'transparent', borderFocus: 'transparent' }" />
+            <span flex="1" text="center">{{ '*************' }}</span>
+            <!-- <n-input :value="userInfo?.password" type="password" show-password-on="click" readonly placeholder="" :theme-overrides="{ border: 'transparent', borderHover: 'transparent', borderFocus: 'transparent' }" /> -->
 
             <EditPassword />
           </span>
