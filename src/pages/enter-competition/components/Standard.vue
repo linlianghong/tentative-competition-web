@@ -19,7 +19,7 @@ function handleJoin() {
 <template>
   <PageItem :bg="bg" title="评判标准" show-footer :title-style="{ marginBottom: '4vw' }">
     <div h-full p="b-10vw" flex="~ col justify-between items-center">
-      <div flex="lg:1" grid="~ gap-4vw rows-2 cols-2  lg:(items-center cols-4 rows-1)">
+      <div flex="lg:1" grid="~ gap-4vw rows-2 cols-2  lg:(items-center cols-4 rows-1)" w="full">
         <div><img w-full object-cover :src="img1"></div>
         <div><img w-full object-cover :src="img2"></div>
         <div><img w-full object-cover :src="img3"></div>
