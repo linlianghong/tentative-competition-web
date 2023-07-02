@@ -38,7 +38,7 @@ const imgs = computed(() => {
 </script>
 
 <template>
-  <div bg="no-repeat cover" p="x-10vw t-5vw" h-full :style="{ backgroundImage: `url(${bg})` }">
+  <div bg="no-repeat cover" p="x-10vw y-5vw" h-full :style="{ backgroundImage: `url(${bg})` }">
     <div m="b-30px" text="20px center" font="700">
       {{ data?.data.worksName }}
     </div>
