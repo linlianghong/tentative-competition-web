@@ -176,7 +176,10 @@ function handleSubmit() {
                 队员信息
               </div>
             </n-grid-item>
-            <template v-for="(item, i) of formData.memberInfoVos" :key="i">
+          </n-grid>
+
+          <template v-for="(item, i) of formData.memberInfoVos" :key="i">
+            <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
               <n-form-item-gi :rule="[{ trigger: 'blur', required: true, message: '请输入姓名' }]" :path="['memberInfoVos', i, 'memberName'].join('.')" :label-style="{ fontWeight: 500 }" span="xs:3 m:1" :label="item.memberType === 'TEAM_LEADER' ? '队长姓名' : `团队成员${i}`">
                 <FormItemPreview :value="item.memberName">
                   <n-input v-model:value="item.memberName" :maxlength="100" placeholder="请输入姓名" />
@@ -212,7 +215,9 @@ function handleSubmit() {
                   <n-input v-model:value="item.idCard" :maxlength="18" placeholder="请输入身份证号" />
                 </FormItemPreview>
               </n-form-item-gi>
-            </template>
+            </n-grid>
+          </template>
+          <n-grid item-responsive responsive="screen" cols="3" x-gap="16" y-gap="16">
             <n-grid-item v-if="isEdit" span="3">
               <div text="center">
                 <n-space justify="center">
