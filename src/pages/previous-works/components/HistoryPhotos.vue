@@ -83,25 +83,25 @@ function hanldeUpdate(key: string) {
               <PhotoCard class="place-self-center" />
             </div>
           </div> -->
-          <div>
+          <div v-if="groupList['一等奖']?.length">
             <SectionTitle title="一等奖" />
             <div flex="~ justify-center gap-4vw">
               <PhotoCard v-for="item of groupList['一等奖']" :id="item.worksId" :key="item.worksId" :style="{ maxWidth: '35%' }" :max-height="250" :title="item.worksName" :desc="item.content" :img-url="item.worksImgMainUrl" />
             </div>
           </div>
-          <div>
+          <div v-if="groupList['二等奖']?.length">
             <SectionTitle title="二等奖" />
             <div grid="~ cols-4 justify-center gap-4vw">
               <PhotoCard v-for="item of groupList['二等奖']" :id="item.worksId" :key="item.worksId" :max-height="150" :title="item.worksName" :desc="item.content" :img-url="item.worksImgMainUrl" />
             </div>
           </div>
-          <div>
+          <div v-if="groupList['三等奖']?.length">
             <SectionTitle title="三等奖" />
             <div grid="~ cols-4 justify-center gap-4vw">
               <PhotoCard v-for="item of groupList['三等奖']" :id="item.worksId" :key="item.worksId" :max-height="150" :title="item.worksName" :desc="item.content" :img-url="item.worksImgMainUrl" />
             </div>
           </div>
-          <div>
+          <div v-if="groupList['优秀奖']?.length">
             <SectionTitle title="优秀奖" />
             <div grid="~ cols-4 justify-center gap-4vw">
               <PhotoCard v-for="item of groupList['优秀奖']" :key="item.worksId" :max-height="150" :title="item.worksName" :desc="item.content" :img-url="item.worksImgMainUrl" />

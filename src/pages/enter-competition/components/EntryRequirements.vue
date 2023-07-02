@@ -24,7 +24,7 @@ function handleDownload() {
 <template>
   <PageItem :bg="bg" title="参赛要求">
     <div text="5" grid="~ cols-1 gap-4 items-center lg:cols-1" my="4vw lt-lg:0">
-      <div :style="{ textIndent: 0 }" class="article" border="2px gray-2 solid" p="4" rounded-4 bg="white opacity-70">
+      <div :style="{ textIndent: 0 }" class="article" border="2px gray-2 solid" p="4" bg="white opacity-70" overflow-auto rounded-4>
         1.微生物、培养基类型、培养时间及其他仪器设备不限，通过微生物培养来创作艺术图形，不得直接使用画笔与颜料描绘。<br>
         2.参赛团队应保证作品的首创性与可复制性，无著作权争议，不得对上传作品的图形和颜色进行后期修饰，为提升作品的美感，可以进行亮度、对比度、清晰度调节。
         <br>

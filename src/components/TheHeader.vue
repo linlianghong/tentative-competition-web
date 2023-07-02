@@ -35,6 +35,11 @@ const menuOptions: MenuOption[] = [
     key: '3',
   },
 ]
+
+router.beforeEach(() => {
+  showDrawer.value = false
+})
+
 function menuNode({ mode = 'horizontal' }) {
   return <NMenu
   v-model={activeKey}

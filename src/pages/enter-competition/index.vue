@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import bg from 'src/assets/enter-competition/WechatIMG88.jpeg'
+import bg from 'src/assets/enter-competition/theme.jpg'
+import bgh5 from 'src/assets/enter-competition/themeh5.jpg'
+import bgtext from 'src/assets/enter-competition/theme-text.png'
 import Banner from './components/Banner.vue'
 import GameProfile from './components/GameProfile.vue'
 import Participants from './components/Participants.vue'
@@ -34,8 +36,10 @@ const { isMobile } = storeToRefs(useLayoutStore())
   >
     <SwiperSlide><Banner /></SwiperSlide>
     <SwiperSlide>
-      <PageItem :bg="bg" :h5bg="bg" title="大赛主题" :content-style="{ height: '70%' }">
-        <div />
+      <PageItem :bg="bg" :h5bg="bgh5" title="大赛主题" :content-style="{ }">
+        <div m="t-5vw">
+          <img :src="bgtext" w-full object="contain">
+        </div>
       </PageItem>
     </SwiperSlide>
     <SwiperSlide>

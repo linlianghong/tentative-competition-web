@@ -16,7 +16,7 @@ useRequest(getSchedules, {
     if (d.data?.length)
       // TODO
       // run(d.data[0].key)
-      run(`${basicInfo.value!.scheduleId}`)
+      run()
   },
 })
 
@@ -31,7 +31,7 @@ function handleMore() {
 <template>
   <PageItem :bg="bg" :h5bg="h5bg" title="往届作品">
     <div m="" grid="~ cols-4 gap-4 lt-lg:cols-2">
-      <PhotoCard v-for="item of data?.data" :id="item.worksId" :key="item.worksId" :img-url="getAssetUrl(item.imgUrl)" :title="item.worksName" :desc="item.content" @detail="handleDetail" />
+      <PhotoCard v-for="item of data?.data" :id="item.worksId" :key="item.worksId" :img-url="item.imgUrl" :title="item.worksName" :desc="item.content" @detail="handleDetail" />
     </div>
 
     <div m="t-2vw" text="center">
