@@ -93,9 +93,7 @@ const imgs = computed(() => {
     </div> -->
 
     <div leading="24px" text="4 #666" m="y-5">
-      <div whitespace="pre-wrap">
-        {{ data?.data.content }}
-      </div>
+      <div v-html="data?.data.content" />
       <!-- <div v-if="data?.data.awardName">
         【所获奖项】{{ data?.data.awardName }}
       </div>
