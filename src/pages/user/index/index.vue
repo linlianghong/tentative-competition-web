@@ -48,7 +48,7 @@ const router = useRouter()
 
 router.beforeEach((to, from, next) => {
   if (to.path.includes('user/info')) {
-    message.warning('未到提交时间')
+    message.warning('未到提交作品时间')
     next(false)
   }
   else {
