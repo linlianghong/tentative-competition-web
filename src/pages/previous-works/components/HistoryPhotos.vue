@@ -61,7 +61,7 @@ function hanldeUpdate(key: string) {
 
 <template>
   <PageItem :bg="bg" show-footer :content-style="{ flex: 1 }">
-    <div h-full py="4vw" @wheel.stop>
+    <div h-full py="4vw">
       <n-scrollbar trigger="none">
         <n-spin :show="loading">
           <n-tabs v-model:value="activeKey" @update-value="hanldeUpdate">

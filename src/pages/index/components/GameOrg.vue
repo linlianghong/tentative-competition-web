@@ -76,13 +76,11 @@ const logos = [a, b, c, d]
 </script>
 
 <template>
-  <PageItem :bg="bg" :h5bg="h5bg" show-footer title="组织机构" :content-style="{ flex: 1 }">
-    <div h-full pb-4 lt-lg="mt-0 overflow-hidden" class="no-swiping" @wheel.stop>
-      <n-scrollbar class="h-full!">
-        <div v-for="(arr, i) of logos" :key="i" mb-2 flex="~ gap-8 justify-center wrap lt-lg:(gap-2)" lt-lg="transform">
-          <OrgCard v-for="item of arr" :key="item.unit" :url="item.url" :info="item.info" :logo="item.logo" :unit="item.unit" class="max-w-1/3 min-w-1/4 flex-1 lt-lg:(max-w-1/2 min-w-2/5)" />
-        </div>
-      </n-scrollbar>
+  <PageItem :bg="bg" :h5bg="h5bg" show-footer title="组织机构" :content-style="{ flex: 1, marginBottom: '1rem' }">
+    <div pb-4 lt-lg="mt-0 " class="">
+      <div v-for="(arr, i) of logos" :key="i" mb-2 flex="~ gap-8 justify-center wrap lt-lg:(gap-2)" lt-lg="transform">
+        <OrgCard v-for="item of arr" :key="item.unit" :url="item.url" :info="item.info" :logo="item.logo" :unit="item.unit" class="max-w-1/3 min-w-1/4 flex-1 lt-lg:(max-w-1/2 min-w-2/5)" />
+      </div>
     </div>
   </PageItem>
 </template>

@@ -14,7 +14,7 @@ function handleClick() {
 </script>
 
 <template>
-  <PageItem :bg="bg" :h5bg="h5bg" title="大赛时间">
+  <PageItem :bg="bg" :h5bg="h5bg" title="大赛时间" :content-style="{ flex: 1 }">
     <div class="h-full w-full" m="b-1/10" p="t-1/10" flex="~ col justify-center items-center">
       <img :src="timeline" w-full object-contain lt-lg:hidden>
       <img :src="timeline5" w-full object-contain lg:hidden>
