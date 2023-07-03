@@ -78,7 +78,6 @@
     "vue-tsc": "^1.6.5"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
